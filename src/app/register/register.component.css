@@ -1,0 +1,30 @@
+.cont{
+    background-color:rgb(225, 225, 225);
+}
+
+.back{
+    background-image: url('../../assets/register.jpg');
+    background-position: center;
+    background-size: 100% 100%;
+   
+    background-repeat: no-repeat;
+}
+
+.card {
+   
+    border: 1px solid #adabab;
+    background-color:rgb(225, 225, 225);
+ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    .rows{
+        
+        padding-bottom: 1%;
+
+    }
+    hr{
+        margin: 1%;
+        width: 100%;
+        height: 1px;
+        background-color:grey;
+        border: none; /*on supprime le style par défaut*/
+      }

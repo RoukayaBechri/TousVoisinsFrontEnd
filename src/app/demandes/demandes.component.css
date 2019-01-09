@@ -1,0 +1,53 @@
+.divhed{
+    background-image: url('../../assets/smiile.png');
+    background-position: center;
+    background-size: 100%;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+
+}
+
+.navigation{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 10px;
+    margin-left: 1%; 
+    background-color: white
+}
+hr{
+    margin: 3%;
+    width: 100%;
+    height: 1px;
+    background-color:grey;
+    border: none; /*on supprime le style par défaut*/
+  }
+
+  /* unvisited link */
+a:link {
+    color: red;
+  }
+  
+  
+  a:visited {
+    color: green;
+  }
+  
+  
+  a:hover {
+    color: hotpink;
+  }
+  
+  
+  a:active {
+    color: blue;
+  }
+
+  hr1{
+    margin: 5%;
+    width: 100%;
+    height: 1px;
+    background-color:grey;
+    border: none; /*on supprime le style par défaut*/
+  }
+
+ 

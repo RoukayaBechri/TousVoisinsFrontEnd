@@ -1,0 +1,17 @@
+.bod{
+    background-color:rgb(225, 225, 225);
+
+}
+hr{
+    margin: 1%;
+    width: 100%;
+    height: 1px;
+    background-color:grey;
+    border: none; /*on supprime le style par défaut*/
+  }
+  .profil{
+   
+    border-radius: 20px;
+    background-color: white
+  
+  }

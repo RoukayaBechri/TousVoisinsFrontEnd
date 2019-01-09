@@ -1,0 +1,26 @@
+.head{
+    background-color: #e3f2fd;
+}
+.bod{
+    background-color:rgb(225, 225, 225);
+}
+#map { height: 580px;
+    width: 100%;
+    border: 2px solid #404040;
+    border-radius: 20px; }
+    .formulaire{
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .example-card {
+        max-width: 100%;
+      }
+      
+      .example-header-image {
+        background-image: url('https://www.eliterencontre.fr/sites/www.eliterencontre.fr/files/styles/elite_rectangle_article_arrow_left_frame/public/2b_en_articleslide_sm5.jpg');
+        background-size: cover;
+      }
+    
+      .checked {
+        color: #F9E005;
+      }

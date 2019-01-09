@@ -1,0 +1,171 @@
+<div class="row container-fluid">
+
+  <div class="divhed col-12">
+    <!-- NAvDIV-->
+   <app-menu></app-menu>
+    <!--NAvDiv-->
+    <h1 style="margin:2%; margin-top:4% ;color:white"> <strong> Le coup de pouce au quotidien!</strong> </h1>
+    <h4 style="margin:2%; margin-bottom:8%;  color:white"><strong> Faciliter votre vie au quotidien <br> avec plus de
+        2500 voisins autour de vous</strong> </h4>
+    <!--Search div-->
+    <div class="row justify-content-around" style="background-color:#3399ff; padding-top:1%">
+      <div class="col-4" style="padding-top: 1%">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">Catégories</label>
+          </div>
+          <select class="custom-select" id="inputGroupSelect01">
+            <option selected>Choisir catégorie</option>
+            <option value="1">Catégorie1</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-3" style="padding-top: 1%">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Adresse ou ville" aria-label="Recipient's username"
+            aria-describedby="basic-addon2">
+          <div class="input-group-append">
+            <span class="input-group-text" id="basic-addon2"><i class="fas fa-map-marked-alt"></i></span>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <button type="button" class="btn btn-outline-light" style="width: 70%"><span style="color: white;">Chercher</span></button>
+      </div>
+    </div>
+    <!--Search div-->
+  </div>
+  <div class="row justify-content-around" style="padding-top: 2%; background-color: #f2f2f2">
+    <!--Vertical Nav-->
+    <div class="col-3 navigation">
+      <h4 style="color: #404040; margin-top: 3%">Affiner vos Critères:</h4>
+      <h6 style="color: #404040">Demandes D'objets:</h6>
+      <nav class="nav flex-column">
+        <a class="nav-link active" href="#">Ouitillage et travaux</a>
+        <a class="nav-link" href="#">Matériel de jardin</a>
+        <a class="nav-link" href="#">Maison et confort</a>
+        <a class="nav-link " href="#">Evénement, Réception & Fête </a>
+        <a class="nav-link" href="#">High Tech</a>
+        <a class="nav-link" href="#">Fournitures de bureau</a>
+        <a class="nav-link" href="#">Matériel de Sport</a>
+        <a class="nav-link" href="#">Loisirs</a>
+        <a class="nav-link" href="#">Mode & Accessoires Adulte</a>
+        <a class="nav-link" href="#">Mode Enfant, Bébé & Puériculture</a>
+        <a class="nav-link" href="#">Bien-être & Bagagerie</a>
+        <a class="nav-link" href="#">Transport & Accessoires Auto , Moto & Bateau</a>
+        <a class="nav-link" href="#">Immobilier</a>
+      </nav>
+      <hr>
+      <h6 style="color: #404040">Demandes de Service:</h6>
+      <nav class="nav flex-column">
+        <a class="nav-link active" href="#">Bricolage - Travaux</a>
+        <a class="nav-link" href="#">Jardinage - Piscine</a>
+        <a class="nav-link" href="#">Déménagement - Manutention</a>
+        <a class="nav-link " href="#">Dépannage - Réparation de matériel </a>
+        <a class="nav-link" href="#">Entretien - Réparation véhicules</a>
+        <a class="nav-link" href="#">Services véhiculés</a>
+        <a class="nav-link" href="#">Services à la personne</a>
+        <a class="nav-link" href="#">Enfants</a>
+        <a class="nav-link" href="#">Animaux</a>
+        <a class="nav-link" href="#">Informatique et web</a>
+        <a class="nav-link" href="#">Photographie - Vidéo</a>
+        <a class="nav-link" href="#">Animation - Evénements</a>
+        <a class="nav-link" href="#">Cours - Formations</a>
+        <a class="nav-link" href="#">Cours - Formations</a>
+        <a class="nav-link" href="#">Administratif - Bureautique</a>
+        <a class="nav-link" href="#">Mode - Santé - Bien être</a>
+        <a class="nav-link" href="#">Restauration - Réception</a>
+
+      </nav>
+    </div>
+    <!--Vertical Nav-->
+
+
+
+
+
+    <div class="col-8">
+      <!--Entete Affichage-->
+      <div class="navigation">
+        <div class="row" style="padding: 1%">
+          <div class="col-6">
+            <h5><a href="#">RÉPONDEZ AUX DEMANDES DE VOS VOISINS</a></h5>
+          </div>
+          <div class="col-6">
+            <h5><a href="#"> TROUVEZ DES VOISINS POUR VOS DEMANDES </a> </h5>
+          </div>
+        </div>
+        <div class="row justify-content-around">
+          <div class="col-4">
+            <p style="font-size: 0.9rem; color:gray">Découvrer les objets et les services de vos voisins</p>
+          </div>
+          <div class="col-3">
+            <div class="form-group col-md-12">
+
+              <select id="inputState" class="form-control form-control-sm">
+                <option label="-Profil-"></option>
+                <option>Tous</option>
+                <option value="bricolage">Particulier</option>
+                <option value="jardinage">Commercant</option>
+                <option value="jardinage">Artisant</option>
+                <option value="jardinage">Entrepreneur</option>
+                <option value="jardinage">Professionel</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="form-group col-md-12">
+
+              <select id="inputState" class="form-control form-control-sm">
+
+                <option label="-Trier-"></option>
+                <option value="bricolage">Tous</option>
+                <option value="jardinage">Date d'ajout</option>
+                <option value="jardinage">Distance</option>
+                <option value="jardinage">Pertinence</option>
+
+              </select>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!--Entete Affichage-->
+
+      <!-- Affichage div des demandes-->
+      <div class=" navigation" style="margin-top: 2%">
+        <div class="row justify-content-between" style="padding-top:2%">
+          <div class="col-4 ">
+            <p style="color:grey; font-size: 0.8rem; margin-left: 1%">Date de publication: 12/1/2018</p>
+          </div>
+          <div class="col-2"> <span class="badge badge-pill badge-success" style="font-size: 1rem">20 DT/jour</span>
+          </div>
+        </div>
+        <div class="row justify-content-around" style="padding-top:2%">
+          <div class="col-3">
+            <img src="../../assets/image1.jpg" style="width: 100%; height: 100%;" class=" rounded mx-auto d-block"
+              alt="profil">
+          </div>
+          <div class="col-8">
+            <h5 style="color:gray"> Nom du voisin</h5>
+            <h3 style="margin:2%; color: #3399ff">Nom de la publication</h3>
+            <p>Description: Déscription de la publication (Contenue Afficher Dynamiquement)</p>
+          </div>
+        </div>
+        <div class="row justify-content-around">
+          <hr>
+          <span style="color: grey; font-size: 1rem; margin-left:2%; margin-right: 2%"><i class="fas fa-map-marker-alt"></i> Adresse</span>
+          <span style="color: grey; font-size: 1rem; margin-left:2%; margin-right: 2%"><i class="fas fa-comments"></i> Réponses et propositions</span>
+          <span style="color: grey; font-size: 1rem; margin-left:2%; margin-right: 2%"><i class="fas fa-tags"></i> tag1, tag2, tag3</span>
+          <span style="color: grey; font-size: 1rem; margin-left:2%; margin-right: 2%"><i class="fas fa-clock"></i> Valable jusqu'à</span>
+        </div>
+      </div>
+      <!-- Affichage div des demandes-->
+    </div>
+
+  </div>
+
+
+</div>

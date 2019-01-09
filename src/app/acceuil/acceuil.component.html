@@ -1,0 +1,33 @@
+<div class="container-fluid cont">
+  <!-- Nav bar-->
+  <app-menu></app-menu>
+  <!-- Fin Nav bar-->
+  <div class="row align-item-center justify-content-center text-center"style="padding-top:3%; padding-bottom:3%; ">
+    <div class="col-lg-6 col-md-6 col-sm-10 col- 10">
+    <h1 style="color:azure;"><strong> Découvez une nouvelle expérience de partage entre voisins</strong></h1>
+  </div>
+  </div>
+  <!--search input-->
+  <div class="row align-item-center justify-content-center" style ="padding-top:2%; padding-bottom: 4%">
+  <div class="input-group input-group-lg" style="width:60%">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-lg" style="font-size: 2em;"><i class="fas fa-home"><span style="font-size:0.8rem; font-family: Arial, Helvetica, sans-serif; color: black">J'habite à:</span></i></span>
+      </div>
+      
+      <input type="text" class="form-control" id="input_text" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" placeholder="Saisir l'adresse de votre domicile" [(ngModel)]="userAdresse" [ngModelOptions]="{standalone: true}">
+      <div class="input-group-append">
+          <span class="input-group-text" style="font-size: 2em"><i class="fas fa-search-location"></i></span>
+        </div>
+    </div>
+  </div>
+  <!--search input-->
+  <!--Buttoon serach-->
+  <div class="row align-item-center justify-content-center text-center" style="padding-bottom: 15%">
+      <button type="button" class="btn btn-warning btn-rounded" style="font-size: 1.1rem"  (click)="getadresseuser()">Découvrir votre voisinage</button>
+</div>
+  <!--Fin button search-->
+
+  
+
+  
+</div>

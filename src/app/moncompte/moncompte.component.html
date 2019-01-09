@@ -1,0 +1,132 @@
+<div class=" container-fluid bod">
+  <app-menu></app-menu>
+  <div class="row" style="margin:2%">
+    <div class="col-12">
+      <div class="row" style="background-color:#66a3ff; padding:1%;  border-radius: 20px;">
+        <h3 style="color:white"> Editer mon profil</h3>
+      </div>
+    </div>
+  </div>
+  <div class='row' style="margin:2%">
+    <div class="col-3">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link active" href="#"><span style="color:#66a3ff"><i class="fas fa-caret-right"></i></span>Identité</a>
+        </li>
+        <hr>
+        <li class="nav-item">
+          <a class="nav-link" href="#"><span style="color:#66a3ff"><i class="fas fa-caret-right"></i></span>Présentation</a>
+        </li>
+        <hr>
+        <li class="nav-item">
+          <a class="nav-link" href="#"><span style="color:#66a3ff"><i class="fas fa-caret-right"></i></span>Verification</a>
+        </li>
+        <hr>
+        <li class="nav-item">
+          <a class="nav-link" href="#"><span style="color:#66a3ff"><i class="fas fa-caret-right"></i></span>Mes
+            prestations</a>
+        </li>
+
+      </ul>
+
+    </div>
+    <div class="col-9 profil">
+      <!--FirstRow-->
+      <div class="row">
+
+        <div class="col-3">
+          <h5>Identité</h5>
+        </div>
+
+        <div class="col-3 align-items-center justify-content-center text-center" style="margin-top:2%">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text" id="btnGroupAddon"><input class="form-check-input" type="radio" style="height:17px; width:17px; margin:2%"
+                  checked name="prop" id="homme" value="homme"></div>
+            </div>
+            <div class="input-group-append">
+              <div class="input-group-text" id="btnGroupAddon"><span style="font-size: 3rem"><i class="fas fa-male"></i></span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-3 align-items-center justify-content-center text-center" style="margin-top:2%">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text" id="btnGroupAddon"> <input class="form-check-input" type="radio" style="height:17px; width:17px;margin:2%"
+                  name="prop" id="femme" value="femme"></div>
+            </div>
+            <div class="input-group-append">
+              <div class="input-group-text" id="btnGroupAddon"><span style="font-size: 3rem"><i class="fas fa-female"></i></span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="col-3"> </div>
+        <hr>
+      </div>
+      <!--First Row-->
+      <!--Second Row-->
+      <div class="row align-items-center justify-content-center" style="padding:1%">
+        <div class="col-3">
+          <h5>Identité</h5>
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control mb-4" name="nom" placeholder="Votre nom ici">
+          <input type="text" class="form-control mb-4" name="prenom" placeholder="Votre penom ici">
+        </div>
+        <div class="col-3"></div>
+
+        <hr>
+      </div>
+      <!--Second Row-->
+      <!--third Row-->
+      <div class="row align-items-center justify-content-center" style="padding:1%">
+        <div class="col-3">
+          <h5>Adresse</h5>
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control mb-4" name="nom" placeholder="Rue">
+          <input type="text" class="form-control mb-4" name="prenom" placeholder="Quartier">
+          <input type="text" class="form-control mb-4" name="prenom" placeholder="Ville">
+        </div>
+        <div class="col-3"></div>
+
+        <hr>
+      </div>
+
+      <!--Third Row-->
+
+      <!--fourth Row-->
+      <div class="row align-items-center justify-content-center" style="padding:1%">
+        <div class="col-3">
+          <h5>Date de naissance</h5>
+        </div>
+        <div class="col-6">
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+        </div>
+        <div class="col-3"></div>
+
+        <hr>
+      </div>
+
+      <!--fourt Row-->
+      <!--Five row-->
+      <div class="row align-items-center justify-content-center" style="padding-bottom: 3%">
+        <button class="btn btn-success btn-block" style="width: 50%;">Enregistrez modifications</button>
+      </div>
+      <!--Five row-->
+
+
+    </div>
+
+  </div>
+</div>

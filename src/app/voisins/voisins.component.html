@@ -1,0 +1,161 @@
+<div class="container-fluid head">
+  <div>
+   <app-menu></app-menu>
+
+  </div>
+  <div class="row bod" style="padding-top:2%">
+    <div class="col-lg-5 col-md-5 col-sm-10 col-10 formulaire" style="margin-left:3%;margin-right:3%">
+      <div class="row text-center align-items-center justify-content-center" style="background-color: rgb(51, 181, 229);margin-top: 0%; padding-top: 0%;">
+        <p class="h4 mb-4" style="font-size: 1.5rem; color:whitesmoke">Demandez à vos voisins</p>
+
+        <p style="font-size: 1rem; color:whitesmoke">Partagez objets et service et élargir votre réseaux de
+          connaissances.</p>
+      </div>
+      <!-- Default form subscription -->
+      <div class=" border border-light p-5 " style="padding-top:0%">
+
+        <h5 class="text-left" style="margin-top: 1%; color:rgb(51, 181, 229);">
+          1-Vous demandez:
+        </h5>
+
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" style="height:17px; width:17px;" checked [(ngModel)]="modelprop"
+            name="prop" id="objet" value="objet">
+          <label class="form-check-label" for="inlineRadio1"> <span style="font-size:1.2rem">Un Objet</span></label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" style="height:17px; width:17px;" checked [(ngModel)]="modelprop"
+            name="prop" id="service" value="service">
+          <label class="form-check-label" for="inlineRadio2"><span style="font-size:1.2rem">Un service</span></label>
+        </div>
+
+        <h5 class="text-left" style="margin-top: 3%; color:rgb(51, 181, 229);"> 2- Expliquer ce que vous demandez à vos
+          voisins: </h5>
+        <div class="form-group blue-border-focus  shadow-textarea">
+
+          <textarea class="form-control" id="exampleFormControlTextarea5" rows="2" placeholder="Ex: J'ai besoin empreinter une visseuse-perseuse pour une durée d'une demi journée "></textarea>
+        </div>
+
+        <h5 *ngIf="modelprop === 'objet'" class="text-left" style="margin-top: 3%; color:rgb(51, 181, 229);">3-
+          Choissisez la catégorie de l'objet: </h5>
+        <!-- -->
+        <div *ngIf="modelprop === 'objet'" class="row">
+
+          <div class="form-group col-md-12">
+            <label for="inputState">Catégorie</label>
+            <select id="inputState" class="form-control">
+              <option label="--Choisir catégorie --"></option>
+              <option value="auto">Auto/Moto/byciclette</option>
+              <option value="bricolage">Bricolage</option>
+              <option value="jardinage">Jardinage</option>
+              <option value="electro">Eléctroménagers</option>
+              <option value="livres">Livres et magazines</option>
+              <option value="livres">Sport et loisirs</option>
+              <option value="livres">Vetements</option>
+            </select>
+          </div>
+
+
+          <div class="form-group col-md-12">
+
+            <select id="inputState" class="form-control">
+              <option selected>Location</option>
+
+              <option value="bricolage">Vente</option>
+              <option value="jardinage">Don gratuit</option>
+            </select>
+          </div>
+
+        </div>
+
+        <div *ngIf="modelprop === 'objet'" class="form-row justify-content-around">
+          <div class="col-sm-6 my-1">
+            <label class="sr-only" for="inlineFormInputGroup">Username</label>
+            <div class="input-group mb-1">
+
+              <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Durée">
+              <div class="input-group-prepend">
+                <div class="input-group-text">jour(s)</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 my-1">
+            <label class="sr-only" for="inlineFormInputGroup"></label>
+            <div class="input-group mb-1">
+
+              <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Budget">
+              <div class="input-group-prepend">
+                <div class="input-group-text">DT</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Affichage service-->
+        <h5 *ngIf="modelprop === 'service'" class="text-left" style="margin-top: 3%; color:rgb(51, 181, 229);">3-
+          Choissisez la catégorie du service: </h5>
+        <div *ngIf="modelprop === 'service'" class="row row justify-content-around">
+
+          <div class="form-group col-md-12">
+            <label for="inputState">Catégorie</label>
+            <select id="inputState" class="form-control">
+              <option label="--Choisir catégorie --"></option>
+              <option value="auto">Accompagnement et assistance</option>
+              <option value="bricolage">Covoiturage</option>
+              <option value="jardinage">Travaux et Battiment</option>
+              <option value="electro">Service à domicile</option>
+
+            </select>
+          </div>
+          <div class="row  justify-content-around">
+            <div class="col-8">
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Type de facturation</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                  <option>Budget à l'heure</option>
+                  <option>Budget par jour </option>
+                  <option>Budget globale</option>
+                  <option>Sur devis</option>
+                  <option>Budget non rémunéré</option>
+                </select>
+              </div>
+
+            </div>
+            <div class="col-4">
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">Prix</label>
+                <div class="input-group mb-1">
+
+                  <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Budget">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">DT</div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Affichage service-->
+
+
+
+        <h5 class="text-left" style="margin-top: 3%; color:rgb(51, 181, 229);"> 4- Où situez vous?: </h5>
+        <input type="text" class="form-control mb-4" name="adresse" placeholder="Précisez une adresse" [(ngModel)]="userAdresse">
+        <div class="row align-items-center justify-content-center">
+          <button class="btn btn-success btn-block" style="width: 50%;" (click)="search()">Demandez à vos voisins</button>
+        </div>
+
+      </div>
+      <!-- Default form subscription -->
+
+
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+
+      <div id="map"></div>
+
+    </div>
+  </div>
+</div>
