@@ -24,3 +24,13 @@
       .checked {
         color: #F9E005;
       }
+
+      .divhed{
+        background-image: url('../../assets/partage.jpg');
+        background-position: cover;
+        background-size: 100% 100%;
+        
+       
+        background-repeat: no-repeat;
+    
+    }

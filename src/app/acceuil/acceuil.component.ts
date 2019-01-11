@@ -27,7 +27,7 @@ export class AcceuilComponent implements OnInit {
       this.mapLatCenter=this.userData[0].lat
       this.mapLonCenter=this.userData[0].lon
       })
-      this.router.navigate(['voisins']);
+      this.router.navigate(['voisins'],);
 
   }
 
