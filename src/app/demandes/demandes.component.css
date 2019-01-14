@@ -49,5 +49,8 @@ a:link {
     background-color:grey;
     border: none; /*on supprime le style par défaut*/
   }
+  .clickable {
+     
+  }
 
  

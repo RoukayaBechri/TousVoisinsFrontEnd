@@ -25,7 +25,7 @@
           <label class="form-check-label" for="inlineRadio1"> <span style="font-size:1.2rem">Un Objet</span></label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" style="height:17px; width:17px;" checked [(ngModel)]="modelprop"
+          <input class="form-check-input" type="radio" style="height:17px; width:17px;" [(ngModel)]="modelprop"
             name="prop" id="service" value="service">
           <label class="form-check-label" for="inlineRadio2"><span style="font-size:1.2rem">Un service</span></label>
         </div>
@@ -34,7 +34,7 @@
           voisins: </h5>
         <div class="form-group blue-border-focus  shadow-textarea">
 
-          <textarea class="form-control" id="exampleFormControlTextarea5" rows="2" placeholder="Ex: J'ai besoin empreinter une visseuse-perseuse pour une durée d'une demi journée "></textarea>
+          <textarea class="form-control" id="exampleFormControlTextarea5" rows="2" [(ngModel)]="supply.description" placeholder="Ex: J'ai besoin empreinter une visseuse-perseuse pour une durée d'une demi journée "></textarea>
         </div>
 
         <h5 *ngIf="modelprop === 'objet'" class="text-left" style="margin-top: 3%; color:rgb(51, 181, 229);">3-
@@ -44,26 +44,33 @@
 
           <div class="form-group col-md-12">
             <label for="inputState">Catégorie</label>
-            <select id="inputState" class="form-control">
+            <select id="inputState" class="form-control" [(ngModel)]="objet.catObjet">
               <option label="--Choisir catégorie --"></option>
-              <option value="auto">Auto/Moto/byciclette</option>
-              <option value="bricolage">Bricolage</option>
-              <option value="jardinage">Jardinage</option>
-              <option value="electro">Eléctroménagers</option>
-              <option value="livres">Livres et magazines</option>
-              <option value="livres">Sport et loisirs</option>
-              <option value="livres">Vetements</option>
+              <option label="--Choisir catégorie --"></option>
+              <option value="Ouitillage et travaux">Outillage et travaux</option>
+              <option value="Matériel de jardin">Matériel de jardin</option>
+              <option value="Maison et confort">Maison et confort</option>
+              <option value="Evénement, Réception & Fête">Evénement, Réception & Fête</option>
+              <option value="High Tech">High Tech</option>
+              <option value="Fournitures de bureau">Fournitures de bureau</option>
+              <option value="Loisirs">Loisirs</option>
+              <option value="Livres, Magazines & BD">Livres, Magazines & BD </option>
+              <option value="Mode & Accessoires Adulte">Mode & Accessoires Adulte</option>
+              <option value="Mode Enfant, Bébé & Puériculture">Mode Enfant, Bébé & Puériculture</option>
+              <option value="Bien-être & Bagagerie">Bien-être & Bagagerie</option>
+              <option value="Transport & Accessoires Auto , Moto & Bateau">Transport & Accessoires Auto , Moto & Bateau</option>
+              <option value="Immobilier">Immobilier</option>
             </select>
           </div>
 
 
           <div class="form-group col-md-12">
 
-            <select id="inputState" class="form-control">
-              <option selected>Location</option>
+            <select id="input" class="form-control" [(ngModel)]="objet.modeExpl">
+              <option selected value="Location">Location</option>
 
-              <option value="bricolage">Vente</option>
-              <option value="jardinage">Don gratuit</option>
+              <option value="Vente">Vente</option>
+              <option value="Don gratuit">Don gratuit</option>
             </select>
           </div>
 
@@ -71,10 +78,10 @@
 
         <div *ngIf="modelprop === 'objet'" class="form-row justify-content-around">
           <div class="col-sm-6 my-1">
-            <label class="sr-only" for="inlineFormInputGroup">Username</label>
+            
             <div class="input-group mb-1">
 
-              <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Durée">
+              <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Durée" [(ngModel)]="objet.dureeExpl">
               <div class="input-group-prepend">
                 <div class="input-group-text">jour(s)</div>
               </div>
@@ -84,7 +91,7 @@
             <label class="sr-only" for="inlineFormInputGroup"></label>
             <div class="input-group mb-1">
 
-              <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Budget">
+              <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Budget"  [(ngModel)]="objet.productPrice">
               <div class="input-group-prepend">
                 <div class="input-group-text">DT</div>
               </div>
@@ -98,25 +105,38 @@
 
           <div class="form-group col-md-12">
             <label for="inputState">Catégorie</label>
-            <select id="inputState" class="form-control">
+            <select id="categoriesService" class="form-control" [(ngModel)]="service.catService">
               <option label="--Choisir catégorie --"></option>
-              <option value="auto">Accompagnement et assistance</option>
-              <option value="bricolage">Covoiturage</option>
-              <option value="jardinage">Travaux et Battiment</option>
-              <option value="electro">Service à domicile</option>
-
+              <option value="Bricolage - Travaux">Bricolage - Travaux</option>
+              <option value="Jardinage - Piscine">Jardinage - Piscine</option>
+              <option value="Déménagement - Manutention">Déménagement - Manutention</option>
+              <option value="Dépannage - Réparation de matériel">Dépannage - Réparation de matériel</option>
+              <option value="Entretien - Réparation véhicules">Entretien - Réparation véhicules</option>
+              <option value="Services véhiculés">Services véhiculés</option>
+              <option value="Services à la personne">Services à la personne</option>
+              <option value="Enfants">Enfants</option>
+              <option value="Animaux">Animaux</option>
+              <option value="Informatique et web">Informatique et web</option>
+              <option value="Photographie - Vidéo">Photographie - Vidéo</option>
+              <option value="Animation - Evénements">Animation - Evénements</option>
+              <option value="Cours - Formations">Cours - Formations</option>
+              <option value="Administratif - Bureautique">Administratif - Bureautique</option>
+              <option value="Mode - Santé - Bien être">Mode - Santé - Bien être</option>
+              <option value="Restauration - Réception">Restauration - Réception</option>
+              
+    
             </select>
           </div>
           <div class="row  justify-content-around">
             <div class="col-8">
               <div class="form-group">
                 <label for="exampleFormControlSelect1">Type de facturation</label>
-                <select class="form-control" id="exampleFormControlSelect1">
-                  <option>Budget à l'heure</option>
-                  <option>Budget par jour </option>
-                  <option>Budget globale</option>
-                  <option>Sur devis</option>
-                  <option>Budget non rémunéré</option>
+                <select class="form-control" id="TypeFacturation" [(ngModel)]="service.typeFacturation" >
+                  <option value="Budget à l'heure" selected>Budget à l'heure</option>
+                  <option value="Budget par jour">Budget par jour </option>
+                  <option value="Budget globale">Budget globale</option>
+                  <option value="Sur devis">Sur devis</option>
+                  <option value="Budget non rémunéré">Budget non rémunéré</option>
                 </select>
               </div>
 
@@ -126,7 +146,7 @@
                 <label for="exampleFormControlSelect1">Prix</label>
                 <div class="input-group mb-1">
 
-                  <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Budget">
+                  <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Budget" [(ngModel)]="supply.budget" >
                   <div class="input-group-prepend">
                     <div class="input-group-text">DT</div>
                   </div>

@@ -20,15 +20,16 @@
 
             <label for="inputEmail3" class="col-sm-3 col-form-label">Email</label>
             <div class="col-sm-9">
-              <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+              <input type="email" class="form-control" name="email" id="inputEmail3" placeholder="Email" [(ngModel)]="email" >
             </div>
           </div>
           <div class="form-group row">
             <label for="inputPassword3" class="col-sm-3 col-form-label">Password</label>
             <div class="col-sm-9">
-              <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+              <input type="password" class="form-control" name="password" id="inputPassword3" placeholder="Password" [(ngModel)]="password">
             </div>
           </div>
+          <h6 *ngIf="connect==false" style="color:red">Veuillez vérifier votre e-mail et mot de passe</h6>
           <fieldset class="form-group">
 
           </fieldset>
@@ -47,7 +48,7 @@
 
           <div class="form-group row align-items-center justify-content-center">
             <div class="col-sm-6">
-              <button type="submit" class="btn btn-primary" style="width: 100%">Se connecter</button>
+              <button  class="btn btn-primary" style="width: 100%" (click)="connecter()">Se connecter</button>
             </div>
           </div>
 

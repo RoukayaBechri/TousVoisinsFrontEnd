@@ -2,7 +2,7 @@
 
   <div class="divhed col-12">
     <!-- NAvDIV-->
-   <app-menu></app-menu>
+    <app-menu></app-menu>
     <!--NAvDiv-->
     <h1 style="margin:2%; margin-top:4% ;color:white"> <strong> Le coup de pouce au quotidien!</strong> </h1>
     <h4 style="margin:2%; margin-bottom:8%;  color:white"><strong> Faciliter votre vie au quotidien <br> avec plus de
@@ -89,13 +89,14 @@
     <div class="col-8">
       <!--Entete Affichage-->
       <div class="navigation">
-        <div class="row" style="padding: 1%">
-          <div class="col-6">
-            <h5><a href="#">RÉPONDEZ AUX DEMANDES DE VOS VOISINS</a></h5>
-          </div>
-          <div class="col-6">
-            <h5><a href="#"> TROUVEZ DES VOISINS POUR VOS DEMANDES </a> </h5>
-          </div>
+        <div class="row" style="padding: 2%">
+          <mat-tab-group style="width: 100%">
+            <mat-tab label=" RÉPONDEZ AUX DEMANDES DE VOS VOISINS" style="margin:2%; font-size: 2rem"></mat-tab>
+            <mat-tab label="TROUVEZ DES VOISINS POUR VOS DEMANDES" style="margin: 2%; font-size: 2rem">  </mat-tab>
+
+          </mat-tab-group>
+
+
         </div>
         <div class="row justify-content-around">
           <div class="col-4">
@@ -135,31 +136,37 @@
       <!--Entete Affichage-->
 
       <!-- Affichage div des demandes-->
-      <div class=" navigation" style="margin-top: 2%">
+      <div *ngFor="let pub of publicationData" class=" navigation" style="margin-top: 2%">
         <div class="row justify-content-between" style="padding-top:2%">
           <div class="col-4 ">
-            <p style="color:grey; font-size: 0.8rem; margin-left: 1%">Date de publication: 12/1/2018</p>
+            <p style="color:grey; font-size: 0.8rem; margin-left: 1%">Date de publication: {{pub.datePub}}</p>
           </div>
-          <div class="col-2"> <span class="badge badge-pill badge-success" style="font-size: 1rem">20 DT/jour</span>
+          <div class="col-2"> <span class="badge badge-pill badge-success" style="font-size: 1rem">{{pub.product.productPrice}}
+              DT/jour</span>
           </div>
         </div>
         <div class="row justify-content-around" style="padding-top:2%">
           <div class="col-3">
-            <img src="../../assets/image1.jpg" style="width: 100%; height: 100%;" class=" rounded mx-auto d-block"
-              alt="profil">
+            <img src="../../assets/image1.jpg" style="width: 100%; height: 100%;" class=" rounded mx-auto d-block" alt="profil">
           </div>
           <div class="col-8">
-            <h5 style="color:gray"> Nom du voisin</h5>
-            <h3 style="margin:2%; color: #3399ff">Nom de la publication</h3>
-            <p>Description: Déscription de la publication (Contenue Afficher Dynamiquement)</p>
+            <h5 style="color:gray"> <a (click)="goToUser(pub.simpleUser)" value="user" class="clickable">
+                {{pub.simpleUser.userName}} {{pub.simpleUser.userLastName}} </a></h5>
+            <h3 style="margin-top:2%;margin-bottom: 2%; color: #3399ff">{{pub.nomPublication}}</h3>
+            <p>{{pub.description}}</p>
+
+            <button class="btn btn-primary" (click)="proposer(pub.id)">Faire une proposition </button>
           </div>
         </div>
         <div class="row justify-content-around">
           <hr>
-          <span style="color: grey; font-size: 1rem; margin-left:2%; margin-right: 2%"><i class="fas fa-map-marker-alt"></i> Adresse</span>
-          <span style="color: grey; font-size: 1rem; margin-left:2%; margin-right: 2%"><i class="fas fa-comments"></i> Réponses et propositions</span>
-          <span style="color: grey; font-size: 1rem; margin-left:2%; margin-right: 2%"><i class="fas fa-tags"></i> tag1, tag2, tag3</span>
-          <span style="color: grey; font-size: 1rem; margin-left:2%; margin-right: 2%"><i class="fas fa-clock"></i> Valable jusqu'à</span>
+          <span style="color: grey; font-size: 1rem; margin-left:2%; margin-right: 2%"><i class="fas fa-map-marker-alt"></i>
+            {{pub.simpleUser.userAdresse.street}} {{pub.simpleUser.userAdresse.city}}</span>
+          <span style="color: grey; font-size: 1rem; margin-left:2%; margin-right: 2%"><i class="fas fa-comments"></i>
+            Réponses et propositions</span>
+
+          <span style="color: grey; font-size: 1rem; margin-left:2%; margin-right: 2%"><i class="fas fa-clock"></i>
+            Valable jusqu'à:</span>
         </div>
       </div>
       <!-- Affichage div des demandes-->

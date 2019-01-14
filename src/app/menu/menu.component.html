@@ -1,29 +1,48 @@
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
-    <a class="navbar-brand"routerLink="/acceuil" style="font-size: 1.5rem; margin-right: 10%"><strong>Tous Voisins</strong></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+  <a class="navbar-brand" routerLink="/acceuil" style="font-size: 1.5rem; margin-right: 10%"><strong>Tous Voisins</strong></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item ">
+        <a class="nav-link" routerLink="/voisins"> Demander à mes voisins </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/publication">Offrir à mes voisins</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/demandes">Toutes les demandes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Blog</a>
+      </li>
+
+    </ul>
+
+    <button *ngIf="connect==false" class="btn btn-outline-success my-2 my-sm-0" (click)="navigate1()" style="margin-right: 2%">Inscription</button>
+    <button *ngIf="connect==false" class="btn btn-outline-success my-2 my-sm-0" (click)="navigate2()">Connexion</button>
+   
+    
+    <!-- Example single danger button -->
+    <div *ngIf="connect==true" class="btn-group">
+
+        <button mat-raised-button color="primary" matBadge="{{nbreNotification}}" matBadgePosition="before" matBadgeColor="accent" type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false">
+        Bienvenue {{user.userName}} {{user.userLastName}}
     </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item ">
-          <a class="nav-link" routerLink="/voisins"> Demander à mes voisins </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/publication">Offrir à mes voisins</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/demandes">Toutes les demandes</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Blog</a>
-        </li>
-
-      </ul>
-
-      <button class="btn btn-outline-success my-2 my-sm-0"  (click)="navigate1()" style="margin-right: 2%">Inscription</button>
-      <button class="btn btn-outline-success my-2 my-sm-0" (click)="navigate2()">Connexion</button>
-
+        
+      
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#"> Mon Profil</a>
+        <a class="dropdown-item" href="#">Mes publications</a>
+        <a class="dropdown-item" href="#"><span matBadge="{{nbreNotification}}" matBadgePosition="after" matBadgeColor="accent" matBadgeOverlap="false">Les demandes</span></a>
+        <a class="dropdown-item" href="#">Mes prestations</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" (click)="deconnecter()" >Se déconnectez</a>
+      </div>
     </div>
-  </nav>
+  </div>
+</nav>

@@ -17,6 +17,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatSliderModule} from '@angular/material/slider';
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 
@@ -35,7 +37,10 @@ import {MatSliderModule} from '@angular/material/slider';
     MatRadioModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSliderModule
+    MatSliderModule,
+    MatBadgeModule,
+    MatTabsModule
+    
     
     
   ],
@@ -53,7 +58,9 @@ import {MatSliderModule} from '@angular/material/slider';
     MatRadioModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSliderModule
+    MatSliderModule,
+    MatBadgeModule,
+    MatTabsModule
     
    
    
