@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { SimpleUser } from './entities/simpleUser';
+import { Application } from './entities/application';
+import { Publication } from './entities/publication';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +13,38 @@ export class ParamService {
   private long;
   private connect: boolean=false;
   private profilUser: SimpleUser = new SimpleUser(); 
+  private application: Application = new Application();
+  private publication: Publication = new Publication();
+  pubid: number;
 
   constructor() { }
+
+
+  public setPubId(id) {
+    this.pubid = id;
+
+  }
+  public getPubId() {
+    return this.pubid;
+  
+}
+
+  public getPublication() {
+    return this.publication
+  }
+  public setPublication(pub: Publication) {
+    this.publication = pub;
+
+  }
+
+
+  public getApplication() {
+    return this.application
+  }
+  public setApplication(apli: Application) {
+    this.application = apli;
+
+  }
 
   public getprofilUser() {
     return this.profilUser

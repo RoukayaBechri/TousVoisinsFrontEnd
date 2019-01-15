@@ -1,0 +1,92 @@
+<div class="row ">
+    <div class="divhed col-12">
+      <!-- NAvDIV-->
+      <app-menu></app-menu>
+      <!--NAvDiv-->
+      <h1 style="margin:2%; margin-top:4% ;color:white"> <strong> Le coup de pouce au quotidien!</strong> </h1>
+      <h4 style="margin:2%; margin-bottom:8%;  color:white"><strong> Faciliter votre vie au quotidien <br> avec plus de
+          2500 voisins autour de vous</strong> </h4>
+      <!--Search div-->
+      <div class="row justify-content-around" style="background-color:#3399ff; padding-top:1%">
+        <div class="col-4" style="padding-top: 1%">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="inputGroupSelect01">Catégories</label>
+            </div>
+            <select class="custom-select" id="inputGroupSelect01">
+              <option selected>Choisir catégorie</option>
+              <option value="1">Catégorie1</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-3" style="padding-top: 1%">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Adresse ou ville" aria-label="Recipient's username"
+              aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <span class="input-group-text" id="basic-addon2"><i class="fas fa-map-marked-alt"></i></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <button type="button" class="btn btn-outline-light" style="width: 70%"><span style="color: white;">Chercher</span></button>
+        </div>
+      </div>
+      <!--Search div-->
+    </div>
+    <div class="row align-item-center justify-content-center" style="margin:2%">
+
+        <div class="col-12" style="margin:2%">
+          
+      
+          <div class="titre" style="margin:2%; background-color: rgb(230, 230, 230); padding:2%">
+          <h5 style="margin:2%; color:#3399ff">Récapulatif de votre Publication</h5>
+          <h5><strong>Nom publication:</strong> {{publication.nomPublication}} </h5><span></span>
+          <h6><strong>description de la publication:</strong> {{publication.description}} </h6> <span></span>
+          <h6><strong>Date de publiacation:</strong> {{publication.datePub}}</h6> <span></span>
+        </div>
+      
+      
+        </div>
+        <h5>Ce que vos voisins vous ont proposés:</h5>
+        <div *ngFor="let a of appliData let i = index" class="col-8 titre" style="margin:5%; padding:2%">
+          
+          <div class="row" style=" padding:2%" >
+            <div class="col-6">
+                <h6>Nom du voisin: <span style="font-size:1.5rem; color:#002266">{{a.simpleUser.userName}} {{a.simpleUser.userLastName}} </span> </h6> 
+            </div>
+            <div class="col-6">
+                <span  style="font-size: 1em"><i class="fas fa-search-location"></i>Adresse:{{a.simpleUser.userAdresse.street}} {{a.simpleUser.userAdresse.city}}</span>
+            </div>
+            </div>
+            <div class="row text-cente" style=" padding-left:2%" >
+                <h6>Proposition du voisin: <span style="font-size: 1.5em">{{a.proposition}}</span> </h6> 
+                
+            </div>
+            <div class="row text-cente" style=" padding-left:2%" >
+                <span style="font-size:0.8rem ">Date de proposition:{{a.dateApplication}}</span>
+            </div>
+      
+            <hr>
+            <div class="row text-center">
+                <button type="button" class="btn  btn-sm btn-outline-success" (click)="accepter(i)">Accepter</button>
+                <button type="button" class="btn  btn-sm btn-outline-danger">Décliner</button>
+                
+            </div>
+          
+          
+      
+          
+        </div>
+      </div>
+      
+      
+
+
+
+
+    </div>
+    
+    

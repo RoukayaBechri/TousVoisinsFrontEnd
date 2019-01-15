@@ -1,11 +1,14 @@
-export class Application {
-    
-    
- 
+import { ApplicationPK } from './applicationPK';
 
-    proposition: string="une damande"
-  
-    
-   
-  
-  }
+export class Application {
+
+  applicationPK: ApplicationPK= new ApplicationPK()
+  proposition: string = "une damande"
+
+  dateApplication: "2019-01-14"
+  doneApp: false
+
+  validApp: false
+
+
+}

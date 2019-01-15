@@ -1,0 +1,96 @@
+<div class="row ">
+  <div class="divhed col-12">
+    <!-- NAvDIV-->
+    <app-menu></app-menu>
+    <!--NAvDiv-->
+    <h1 style="margin:2%; margin-top:4% ;color:white"> <strong> Le coup de pouce au quotidien!</strong> </h1>
+    <h4 style="margin:2%; margin-bottom:8%;  color:white"><strong> Faciliter votre vie au quotidien <br> avec plus de
+        2500 voisins autour de vous</strong> </h4>
+    <!--Search div-->
+    <div class="row justify-content-around" style="background-color:#3399ff; padding-top:1%">
+      <div class="col-4" style="padding-top: 1%">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">Catégories</label>
+          </div>
+          <select class="custom-select" id="inputGroupSelect01">
+            <option selected>Choisir catégorie</option>
+            <option value="1">Catégorie1</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-3" style="padding-top: 1%">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Adresse ou ville" aria-label="Recipient's username"
+            aria-describedby="basic-addon2">
+          <div class="input-group-append">
+            <span class="input-group-text" id="basic-addon2"><i class="fas fa-map-marked-alt"></i></span>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <button type="button" class="btn btn-outline-light" style="width: 70%"><span style="color: white;">Chercher</span></button>
+      </div>
+    </div>
+    <!--Search div-->
+  </div>
+</div>
+
+<div class="row align-item-center justify-content-center">
+  <div class="col-7" style="padding: 2%">
+    <div class="titre" style="background-color: #47d147; padding:2%; color:white">
+      <h2>Mes demandes à mes voisins</h2>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nom de la publication</th>
+          <th scope="col">Nom du voisin</th>
+          <th scope="col">Votre Proposition</th>
+          <th scope="col">Date d'ajout de la demande</th>
+          <th scope="col">Status de la demande</th>
+          <th scope="col">Supprimer</th>
+
+
+        </tr>
+      </thead>
+      <tbody>
+
+
+        <tr *ngFor="let app of userData let i= index">
+          <th scope="row">{{i}}</th>
+          <td><a (click)="showApplication(pub.id,i)"> <span style="font-size:1.5rem">
+                {{app.publication.nomPublication}}</span></a></td>
+          <td>{{app.publication.simpleUser.userName}} {{app.publication.simpleUser.userLastName}}</td>
+          <td>{{app.proposition}}</td>
+          <td>{{app.dateApplication}}</td>
+          <td>
+            <div *ngIf="app.validApp==true"> <span class="badge badge-success">Demande accepté par le voisin</span><br>
+              <span>Numéro de tél du voisin: {{app.publication.simpleUser.userPhone}}</span></div>
+            <div *ngIf="app.validApp==false"><span class="badge badge-warning">Demande en attente</span></div>
+          </td>
+          <td></td>
+
+
+        </tr>
+      </tbody>
+    </table>
+
+  
+  
+  
+   
+  </div>
+  <div class="col-5">
+    <div class="titre text-center" style="margin:2%; margin-top:10%; padding-top:5%">
+      <h4>Poster une nouvelle demande à vos voisins</h4>
+
+      <button type="button" class="btn btn-success" style="margin:10%">Nouvelle Demande</button>
+    </div>
+  </div>
+
+
+</div>

@@ -1,11 +1,11 @@
 <div class="container-fluid head">
   <div>
-   <app-menu></app-menu>
+    <app-menu></app-menu>
 
   </div>
- 
+
   <div class="row bod" style="padding-top:2%">
-    <div class="col-lg-5 col-md-5 col-sm-10 col-10 formulaire" style="margin-left:3%;margin-right:3%">
+    <div *ngIf="mode==1" class="col-lg-6 col-md-6 col-sm-10 col-10 pub " style="padding:2%">
       <div class="row text-center align-items-center justify-content-center" style="background-color: rgb(51, 181, 229);margin-top: 0%; padding-top: 0%;">
         <p class="h4 mb-4" style="font-size: 1.5rem; color:whitesmoke">Demandez à vos voisins</p>
 
@@ -25,8 +25,8 @@
           <label class="form-check-label" for="inlineRadio1"> <span style="font-size:1.2rem">Un Objet</span></label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" style="height:17px; width:17px;" [(ngModel)]="modelprop"
-            name="prop" id="service" value="service">
+          <input class="form-check-input" type="radio" style="height:17px; width:17px;" [(ngModel)]="modelprop" name="prop"
+            id="service" value="service">
           <label class="form-check-label" for="inlineRadio2"><span style="font-size:1.2rem">Un service</span></label>
         </div>
 
@@ -34,7 +34,8 @@
           voisins: </h5>
         <div class="form-group blue-border-focus  shadow-textarea">
 
-          <textarea class="form-control" id="exampleFormControlTextarea5" rows="2" [(ngModel)]="supply.description" placeholder="Ex: J'ai besoin empreinter une visseuse-perseuse pour une durée d'une demi journée "></textarea>
+          <textarea class="form-control" id="exampleFormControlTextarea5" rows="2" [(ngModel)]="supply.description"
+            placeholder="Ex: J'ai besoin empreinter une visseuse-perseuse pour une durée d'une demi journée "></textarea>
         </div>
 
         <h5 *ngIf="modelprop === 'objet'" class="text-left" style="margin-top: 3%; color:rgb(51, 181, 229);">3-
@@ -78,7 +79,7 @@
 
         <div *ngIf="modelprop === 'objet'" class="form-row justify-content-around">
           <div class="col-sm-6 my-1">
-            
+
             <div class="input-group mb-1">
 
               <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Durée" [(ngModel)]="objet.dureeExpl">
@@ -91,7 +92,7 @@
             <label class="sr-only" for="inlineFormInputGroup"></label>
             <div class="input-group mb-1">
 
-              <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Budget"  [(ngModel)]="objet.productPrice">
+              <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Budget" [(ngModel)]="objet.productPrice">
               <div class="input-group-prepend">
                 <div class="input-group-text">DT</div>
               </div>
@@ -123,15 +124,15 @@
               <option value="Administratif - Bureautique">Administratif - Bureautique</option>
               <option value="Mode - Santé - Bien être">Mode - Santé - Bien être</option>
               <option value="Restauration - Réception">Restauration - Réception</option>
-              
-    
+
+
             </select>
           </div>
           <div class="row  justify-content-around">
             <div class="col-8">
               <div class="form-group">
                 <label for="exampleFormControlSelect1">Type de facturation</label>
-                <select class="form-control" id="TypeFacturation" [(ngModel)]="service.typeFacturation" >
+                <select class="form-control" id="TypeFacturation" [(ngModel)]="service.typeFacturation">
                   <option value="Budget à l'heure" selected>Budget à l'heure</option>
                   <option value="Budget par jour">Budget par jour </option>
                   <option value="Budget globale">Budget globale</option>
@@ -146,7 +147,7 @@
                 <label for="exampleFormControlSelect1">Prix</label>
                 <div class="input-group mb-1">
 
-                  <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Budget" [(ngModel)]="supply.budget" >
+                  <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Budget" [(ngModel)]="supply.budget">
                   <div class="input-group-prepend">
                     <div class="input-group-text">DT</div>
                   </div>
@@ -170,10 +171,61 @@
 
       </div>
       <!-- Default form subscription -->
-
-
     </div>
-    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+
+    <!-- Display Result-->
+    <div *ngIf="mode==2" class="col-lg-6 col-md-6 col-sm-11 col-11 " style="padding:2%;">
+      <h1>Ce que vos Voisins ont pour vous:</h1>
+
+      <div *ngFor="let pub of searchData" class="pub" style="margin-top: 2%;  background-color: white">
+        <div class="row justify-content-between" style="padding-top:2%">
+          <div class="col-4 ">
+            <p style="color:grey; font-size: 0.8rem; margin-left: 1%">Date de publication: {{pub.datePub}}</p>
+          </div>
+          <div class="col-2"> <span class="badge badge-pill badge-success" style="font-size: 1rem">{{pub.product.productPrice}}
+              DT/jour</span>
+          </div>
+        </div>
+        <div class="row justify-content-around" style="padding-top:2%">
+          <div class="col-3">
+            <img src="../../assets/image1.jpg" style="width: 60%; height: 60%;" class=" rounded mx-auto d-block" alt="profil">
+          </div>
+          <div class="col-8">
+            <h5 style="color:gray"> <a (click)="goToUser(pub.simpleUser)" value="user" class="clickable">
+                {{pub.simpleUser.userName}} {{pub.simpleUser.userLastName}} </a></h5>
+            <h3 style="margin-top:2%;margin-bottom: 2%; color: #3399ff">{{pub.nomPublication}}</h3>
+            <p>{{pub.description}}</p>
+
+          <button class="btn btn-outline-primary" (click)="afficher()">Faire une proposition </button>
+          <div *ngIf="display==1" class="modal-body">
+              <label for="propostion">Prposer quelque chose à votre voisin</label>
+              <textarea class="form-control " id="propostion" rows="2" placeholder="Ecrire votre proposition ici" [(ngModel)]="application.proposition" required></textarea>
+            <button type="button" class="btn btn-success btn-sm" (click)="proposer(pub.id)">Envoyer</button>
+          
+            
+          </div>
+        </div>
+        </div>
+        <div class="row justify-content-around">
+          <hr>
+          <span style="color: grey; font-size: 1rem;  margin-right: 2%"><i class="fas fa-map-marker-alt"></i>
+            {{pub.simpleUser.userAdresse.street}} {{pub.simpleUser.userAdresse.city}}</span>
+          <span style="color: grey; font-size: 1rem; margin-left:2%; margin-right: 2%"><i class="fas fa-comments"></i>
+            Réponses et propositions</span>
+
+          <span style="color: grey; font-size: 1rem; margin-left:2%; "><i class="fas fa-clock"></i>
+            Valable jusqu'à:</span>
+        </div>
+      </div>
+
+
+      <hr>
+    </div>
+
+    <!-- Display Result-->
+
+    <div class="col-lg-6 col-md-6 col-sm-11 col-11">
+
 
       <div id="map"></div>
 

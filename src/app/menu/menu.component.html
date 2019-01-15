@@ -22,8 +22,8 @@
 
     </ul>
 
-    <button *ngIf="connect==false" class="btn btn-outline-success my-2 my-sm-0" (click)="navigate1()" style="margin-right: 2%">Inscription</button>
-    <button *ngIf="connect==false" class="btn btn-outline-success my-2 my-sm-0" (click)="navigate2()">Connexion</button>
+    <button *ngIf="connect==false" class="btn btn-outline-success my-2 my-sm-0" (click)="navigate1('register')" style="margin-right: 2%">Inscription</button>
+    <button *ngIf="connect==false" class="btn btn-outline-success my-2 my-sm-0" (click)="navigate1('sign')">Connexion</button>
    
     
     <!-- Example single danger button -->
@@ -37,8 +37,9 @@
       
       <div class="dropdown-menu">
         <a class="dropdown-item" href="#"> Mon Profil</a>
-        <a class="dropdown-item" href="#">Mes publications</a>
-        <a class="dropdown-item" href="#"><span matBadge="{{nbreNotification}}" matBadgePosition="after" matBadgeColor="accent" matBadgeOverlap="false">Les demandes</span></a>
+        
+        <a class="dropdown-item"  (click)="navigate1('application')"><span matBadge="{{nbreNotification}}" matBadgePosition="after" matBadgeColor="accent" matBadgeOverlap="false">Mes publications</span></a>
+        <a class="dropdown-item" (click)="navigate1('mesdemandes')" >Mes demandes</a>
         <a class="dropdown-item" href="#">Mes prestations</a>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" (click)="deconnecter()" >Se déconnectez</a>

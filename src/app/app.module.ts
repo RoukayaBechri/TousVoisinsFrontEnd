@@ -15,6 +15,9 @@ import { PublicationComponent } from './publication/publication.component';
 import { MoncompteComponent } from './moncompte/moncompte.component';
 import { RegisterComponent } from './register/register.component';
 import { SignComponent } from './sign/sign.component';
+import { ApplicationComponent } from './application/application.component';
+import { ApplicationdisplayComponent } from './applicationdisplay/applicationdisplay.component';
+import { MesdemandesComponent } from './mesdemandes/mesdemandes.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +29,10 @@ import { SignComponent } from './sign/sign.component';
     PublicationComponent,
     MoncompteComponent,
     RegisterComponent,
-    SignComponent
+    SignComponent,
+    ApplicationComponent,
+    ApplicationdisplayComponent,
+    MesdemandesComponent
   ],
   imports: [
     BrowserModule,

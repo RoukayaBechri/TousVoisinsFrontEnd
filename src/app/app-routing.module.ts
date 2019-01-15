@@ -8,6 +8,9 @@ import { PublicationComponent } from './publication/publication.component';
 import { MoncompteComponent } from './moncompte/moncompte.component';
 import { RegisterComponent } from './register/register.component';
 import { SignComponent } from './sign/sign.component';
+import { ApplicationComponent } from './application/application.component';
+import { ApplicationdisplayComponent } from './applicationdisplay/applicationdisplay.component';
+import { MesdemandesComponent } from './mesdemandes/mesdemandes.component';
 
 const routes: Routes = [
   {path: '', component:AcceuilComponent},
@@ -19,6 +22,10 @@ const routes: Routes = [
   {path:'moncompte', component:MoncompteComponent},
   {path:'register', component:RegisterComponent},
   {path:'sign', component:SignComponent},
+  {path:'application', component:ApplicationComponent},
+   {path:'applicationdisplay', component:ApplicationdisplayComponent},
+   {path:'mesdemandes', component:MesdemandesComponent}
+
 ];
 
 @NgModule({

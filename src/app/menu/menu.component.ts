@@ -33,8 +33,8 @@ export class MenuComponent implements OnInit {
       }
     )
   }
-  navigate1() {
-    this.router.navigate(['register']);
+  navigate1(route: string) {
+    this.router.navigate([route]);
 
 
   }
