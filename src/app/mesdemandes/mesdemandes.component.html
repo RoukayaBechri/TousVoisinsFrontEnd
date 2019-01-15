@@ -85,10 +85,13 @@
    
   </div>
   <div class="col-5">
-    <div class="titre text-center" style="margin:2%; margin-top:10%; padding-top:5%">
+
+      <router-outlet></router-outlet>
+
+    <div *ngIf="post==0" class="titre text-center" style="margin:2%; margin-top:10%; padding-top:5%">
       <h4>Poster une nouvelle demande à vos voisins</h4>
 
-      <button type="button" class="btn btn-success" style="margin:10%">Nouvelle Demande</button>
+      <button type="button" class="btn btn-success" (click)="poster()" style="margin:10%">Nouvelle Demande</button>
     </div>
   </div>
 

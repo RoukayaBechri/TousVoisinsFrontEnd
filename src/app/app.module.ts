@@ -18,6 +18,7 @@ import { SignComponent } from './sign/sign.component';
 import { ApplicationComponent } from './application/application.component';
 import { ApplicationdisplayComponent } from './applicationdisplay/applicationdisplay.component';
 import { MesdemandesComponent } from './mesdemandes/mesdemandes.component';
+import { SupplyComponent } from './supply/supply.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,8 @@ import { MesdemandesComponent } from './mesdemandes/mesdemandes.component';
     SignComponent,
     ApplicationComponent,
     ApplicationdisplayComponent,
-    MesdemandesComponent
+    MesdemandesComponent,
+    SupplyComponent
   ],
   imports: [
     BrowserModule,

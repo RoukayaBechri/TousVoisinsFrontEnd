@@ -12,7 +12,8 @@ import { UserserviceService } from '../userservice.service';
 })
 export class MesdemandesComponent implements OnInit {
   userData: any[]
-  appliData: Application= new Application()
+  appliData: Application= new Application();
+  post=0;
 
   constructor(private router: Router, private param: ParamService, private publicationService: PublicationService, private voisinsdisplay: UserserviceService) { }
 
@@ -22,6 +23,12 @@ export class MesdemandesComponent implements OnInit {
         this.userData= data.json()
       }
     )
+  }
+
+  poster(){
+    this.post=1;
+    this.router.navigate(['mesdemandes/supply'])
+
   }
 
 }

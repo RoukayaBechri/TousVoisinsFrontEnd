@@ -11,6 +11,7 @@ import { SignComponent } from './sign/sign.component';
 import { ApplicationComponent } from './application/application.component';
 import { ApplicationdisplayComponent } from './applicationdisplay/applicationdisplay.component';
 import { MesdemandesComponent } from './mesdemandes/mesdemandes.component';
+import { SupplyComponent } from './supply/supply.component';
 
 const routes: Routes = [
   {path: '', component:AcceuilComponent},
@@ -24,7 +25,12 @@ const routes: Routes = [
   {path:'sign', component:SignComponent},
   {path:'application', component:ApplicationComponent},
    {path:'applicationdisplay', component:ApplicationdisplayComponent},
-   {path:'mesdemandes', component:MesdemandesComponent}
+   {path:'mesdemandes', component:MesdemandesComponent, children:[
+     { path:'supply', component:SupplyComponent}
+   ]
+  }
+  
+
 
 ];
 
