@@ -19,6 +19,7 @@ import { ApplicationComponent } from './application/application.component';
 import { ApplicationdisplayComponent } from './applicationdisplay/applicationdisplay.component';
 import { MesdemandesComponent } from './mesdemandes/mesdemandes.component';
 import { SupplyComponent } from './supply/supply.component';
+import { StarRatingModule } from 'angular-rating-star';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +44,8 @@ import { SupplyComponent } from './supply/supply.component';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    StarRatingModule
   ],
   providers: [
     AcceuilComponent

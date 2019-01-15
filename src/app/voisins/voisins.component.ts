@@ -44,9 +44,7 @@ export class VoisinsComponent implements OnInit {
   constructor(private acceuil: AcceuilComponent, private mapdisplay: MapserviceService, private voisinsdisplay: UserserviceService, private param: ParamService, private publicationService: PublicationService) { }
 
   ngOnInit() {
-    console.log("adresse------- : " + this.param.getInitialAdresse());
-    console.log("adresse--------: " + this.param.getInitialLat());
-    console.log("adresse--------: " + this.param.getInitialLong());
+    
     this.initialAdresse = this.param.getInitialAdresse()
     console.log("initial adresse: " + this.param.getInitialAdresse())
 
@@ -183,35 +181,7 @@ export class VoisinsComponent implements OnInit {
 
   }
 
-  addSupply() {
-    if (this.modelprop === "objet") {
-      this.publicationService.addObjet(this.objet).subscribe(
-        data => {
-          console.log(data.json())
-          let idObjet = data.json().id;
-          this.publicationService.addSupply(this.param.getActifUser().id, idObjet, this.supply).subscribe(
-            data => {
-              console.log(data.json())
-            }
-          )
-        }
-      )
-    }
-    else if (this.modelprop === "service") {
-      this.publicationService.addService(this.service).subscribe(
-        data => {
-          console.log(data.json())
-          let idService = data.json().id;
-          this.publicationService.addSupply(this.param.getActifUser().id, idService, this.supply).subscribe(
-            data => {
-              console.log(data.json())
-            }
-          )
-        }
-      )
-
-    }
-  }
+  
 
 
 

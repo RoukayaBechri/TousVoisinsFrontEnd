@@ -18,6 +18,8 @@ export class PublicationService {
   public url9="http://localhost:18080/SiteLocation-web/Site/Publication/offreByUser/"
   public url10="http://localhost:18080/SiteLocation-web/Site/Publication/getApplicationsByPub/"
   public url11="http://localhost:18080/SiteLocation-web/Site/Publication/acceptApplication/"
+  public url12="http://localhost:18080/SiteLocation-web/Site/Publication/getListOfferById/"
+  public url13="http://localhost:18080/SiteLocation-web/Site/Publication/getListSupplyById/"
   constructor(private http : Http) { }
 
   public getAllPublications(){
@@ -67,6 +69,13 @@ export class PublicationService {
 
   public acceptApplication(userId: number, publicationId: number){
     return this.http.put(this.url11+userId+"/"+publicationId,{});
+  }
+  public getOffreById(id: number){
+    return this.http.get(this.url12+id );
+  }
+
+  public getSupplyById(id: number){
+    return this.http.get(this.url13+id);
   }
 
 
