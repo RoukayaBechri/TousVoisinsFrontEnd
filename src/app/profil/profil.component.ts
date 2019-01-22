@@ -3,6 +3,8 @@ import { ParamService } from '../param.service';
 import { SimpleUser } from '../entities/simpleUser';
 import { MapserviceService } from '../mapservice.service';
 import { PublicationService } from '../publication.service';
+import { Feedback } from '../entities/feedback';
+import { Router } from '@angular/router';
 declare let L;
 @Component({
   selector: 'app-profil',
@@ -15,6 +17,8 @@ export class ProfilComponent implements OnInit {
   offre: any=[];
   nbreOffre;
   supply: any=[];
+  feedbackData: any=[];
+  feedback: Feedback= new Feedback();
   nbreSupply;
   mapLat;
   mapLong;
@@ -24,9 +28,15 @@ export class ProfilComponent implements OnInit {
   colors: ["#cccc00", "#cccc00", "#cccc00", "#cccc00", "#cccc00"]  ,
   showLabels: false // hide the label
 }
-  constructor(private param:  ParamService, private mapdisplay: MapserviceService, private publicationService: PublicationService ) { }
+myprofil;
+  constructor(private router: Router, private param:  ParamService, private mapdisplay: MapserviceService, private publicationService: PublicationService ) { }
 
   ngOnInit() {
+    if (this.param.getActifUser().id == this.param.getprofilUser().id){
+      this.myprofil=true;
+    }
+    else
+    this.myprofil=false;
     this.profil= this.param.getprofilUser();
     let adresse= this.param.getprofilUser().userAdresse.street+" "+this.param.getprofilUser().userAdresse.city
 
@@ -64,6 +74,11 @@ export class ProfilComponent implements OnInit {
             console.log("Supply"+this.supply)
             this.nbreSupply= this.supply.length;
             console.log("nombre"+this.nbreSupply);
+            this.publicationService.getfeedBackByUser(this.param.getprofilUser().id).subscribe(
+              data=>{
+                this.feedbackData= data.json();
+              }
+            )
           }
         )
       }
@@ -82,6 +97,26 @@ export class ProfilComponent implements OnInit {
     console.log("nombre"+this.nbreSupply);
   
     
+  }
+
+  commenter(){
+    console.log(this.feedback.description)
+    
+    this.publicationService.addFeedback(this.param.getActifUser().id, this.param.getprofilUser().id, this.feedback).subscribe(
+      data=> {
+        console.log(data.json())
+        this.feedback.description="";
+       this.ngOnInit();
+        
+      }
+    )
+  }
+
+
+  navigate1(route: string) {
+    this.router.navigate([route]);
+
+
   }
 
 }

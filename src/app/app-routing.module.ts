@@ -12,11 +12,12 @@ import { ApplicationComponent } from './application/application.component';
 import { ApplicationdisplayComponent } from './applicationdisplay/applicationdisplay.component';
 import { MesdemandesComponent } from './mesdemandes/mesdemandes.component';
 import { SupplyComponent } from './supply/supply.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 const routes: Routes = [
   {path: '', component:AcceuilComponent},
   {path:'acceuil', component:AcceuilComponent},
-  {path:'profil', component:ProfilComponent},
+  {path:'profil', component:ProfilComponent, children:[{path:'feedback', component: FeedbackComponent}]},
   {path:'demandes', component:DemandesComponent},
   {path:'publication', component:PublicationComponent},
   {path:'voisins', component:VoisinsComponent},

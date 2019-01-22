@@ -42,6 +42,13 @@ export class MenuComponent implements OnInit {
     this.router.navigate(['sign']);
 
   }
+  goToMyProfil(){
+    
+    this.param.setprofilUser(this.param.getActifUser())
+    this.router.navigate(['profil']);
+
+  }
+
   deconnecter() {
     this.connect = false;
     this.param.setConnect(false)

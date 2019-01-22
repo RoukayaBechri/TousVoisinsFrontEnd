@@ -36,8 +36,7 @@
         
       
       <div class="dropdown-menu">
-        <a class="dropdown-item" href="#"> Mon Profil</a>
-        
+        <a class="dropdown-item" (click)=" goToMyProfil()"> Mon Profil</a>
         <a class="dropdown-item"  (click)="navigate1('application')"><span matBadge="{{nbreNotification}}" matBadgePosition="after" matBadgeColor="accent" matBadgeOverlap="false">Mes publications</span></a>
         <a class="dropdown-item" (click)="navigate1('mesdemandes')" >Mes demandes</a>
         <a class="dropdown-item" href="#">Mes prestations</a>

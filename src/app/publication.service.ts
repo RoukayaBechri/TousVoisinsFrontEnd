@@ -3,6 +3,7 @@ import { Http } from '@angular/http';
 import { Objets } from './entities/objet';
 
 import { Service } from './entities/service';
+import { Feedback } from './entities/feedback';
 @Injectable({
   providedIn: 'root'
 })
@@ -20,6 +21,8 @@ export class PublicationService {
   public url11="http://localhost:18080/SiteLocation-web/Site/Publication/acceptApplication/"
   public url12="http://localhost:18080/SiteLocation-web/Site/Publication/getListOfferById/"
   public url13="http://localhost:18080/SiteLocation-web/Site/Publication/getListSupplyById/"
+  public url14="http://localhost:18080/SiteLocation-web/Site/feedback/getFeedbacksBySimpleUser/"
+  public url15="http://localhost:18080/SiteLocation-web/Site/feedback/saveFeedback/"
   constructor(private http : Http) { }
 
   public getAllPublications(){
@@ -76,6 +79,14 @@ export class PublicationService {
 
   public getSupplyById(id: number){
     return this.http.get(this.url13+id);
+  }
+
+  public getfeedBackByUser(id: number){
+    return this.http.get(this.url14+id);
+  }
+
+  public addFeedback(iduser1: number, iduser2: number, feedback: Feedback){
+   return this.http.post (this.url15+iduser1+"/"+iduser2, feedback)
   }
 
 

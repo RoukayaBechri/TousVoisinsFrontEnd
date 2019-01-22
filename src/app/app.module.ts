@@ -20,6 +20,8 @@ import { ApplicationdisplayComponent } from './applicationdisplay/applicationdis
 import { MesdemandesComponent } from './mesdemandes/mesdemandes.component';
 import { SupplyComponent } from './supply/supply.component';
 import { StarRatingModule } from 'angular-rating-star';
+import { FeedbackComponent } from './feedback/feedback.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +37,8 @@ import { StarRatingModule } from 'angular-rating-star';
     ApplicationComponent,
     ApplicationdisplayComponent,
     MesdemandesComponent,
-    SupplyComponent
+    SupplyComponent,
+    FeedbackComponent
   ],
   imports: [
     BrowserModule,

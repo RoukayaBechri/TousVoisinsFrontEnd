@@ -9,6 +9,8 @@ import { Objets } from '../entities/objet';
 import { Service } from '../entities/service';
 import { PublicationService } from '../publication.service';
 import { Application } from '../entities/application';
+import { error } from 'protractor';
+import { Router } from '@angular/router';
 
 declare let L;
 
@@ -37,11 +39,13 @@ export class VoisinsComponent implements OnInit {
   objet: Objets = new Objets();
   service: Service = new Service();
   mode = 1;
-  display=0
+  display=0;
+  currentPublication;
+  error=1;
 
 
 
-  constructor(private acceuil: AcceuilComponent, private mapdisplay: MapserviceService, private voisinsdisplay: UserserviceService, private param: ParamService, private publicationService: PublicationService) { }
+  constructor(private router: Router, private acceuil: AcceuilComponent, private mapdisplay: MapserviceService, private voisinsdisplay: UserserviceService, private param: ParamService, private publicationService: PublicationService) { }
 
   ngOnInit() {
     
@@ -185,21 +189,42 @@ export class VoisinsComponent implements OnInit {
 
 
 
-  proposer(idpublication: number){
+  proposer(){
     console.log("Id de m'utilasateur actif "+this.param.getActifUser().id)
-    console.log("Id de la publication" +idpublication)
+    
     console.log(this.application.proposition)
-    this.publicationService.addApplication(this.param.getActifUser().id, idpublication, {proposition:this.application.proposition} ).subscribe(
+    this.publicationService.addApplication(this.param.getActifUser().id, this.currentPublication, {proposition:this.application.proposition} ).subscribe(
       data =>{
-        console.log(data.json())
+      console.log(data.json())
+      this.error=2;
+      },
+      error=>{
+          console.log(error.status)
+          this.error= error.status;
+          
+
       }
+      
+
     )
 
   this.display=0;
     }
 
-    afficher(){
-      this.display=1;
+    afficher(i,id){
+      this.error=1;
+      console.log(this.param.getActifUser().id)
+      if (!this.param.getActifUser().id){
+            this.error=404
+      }
+      console.log(i);
+      console.log(id);
+      this.currentPublication=id
+      
+    }
+
+    navigate(route: string){
+      this.router.navigate([route])
     }
 
 

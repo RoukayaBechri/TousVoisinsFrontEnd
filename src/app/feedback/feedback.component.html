@@ -1,0 +1,25 @@
+<div *ngFor="let f of feedbackData" class="row" style="margin:2%; padding:2%">
+  <div class=" col-2 align-items-center justify-content-center ">
+
+    <img src="../../assets/image-de-homme_1.jpg" style="width:60px; height:60px; margin-top: 3%" class="rounded-circle rounded mx-auto d-block"
+      alt="profil">
+  </div>
+
+  <div class=" col-10  ">
+    <span style="font-size:1rem; margin-left: 2%"><strong> {{f.simpleUser1.userName}}
+        {{f.simpleUser1.userLastName}} </strong> </span>
+    <span style="font-size:0.8rem; margin-left: 2%"> {{f.dateFeedback}} </span>
+    <div class="comment" style="padding: 2%">
+      <p>{{f.description}}</p>
+    </div>
+
+  </div>
+
+</div>
+<h6>Ajouter un commentaire</h6>
+<div class="form-group blue-border-focus  shadow-textarea">
+
+  <textarea class="form-control" id="exampleFormControlTextarea5" rows="2" [(ngModel)]="feedback.description"
+    placeholder="Faite votre commentaire"></textarea>
+  <button class="btn btn-success btn-sm" (click)="commenter()"> Commenter</button>
+</div>

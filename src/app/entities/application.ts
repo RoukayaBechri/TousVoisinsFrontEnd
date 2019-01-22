@@ -3,9 +3,9 @@ import { ApplicationPK } from './applicationPK';
 export class Application {
 
   applicationPK: ApplicationPK= new ApplicationPK()
-  proposition: string = "une damande"
+  proposition: string = " "
 
-  dateApplication: "2019-01-14"
+  dateApplication: " "
   doneApp: false
 
   validApp: false

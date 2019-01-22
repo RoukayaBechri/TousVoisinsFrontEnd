@@ -77,8 +77,8 @@
           <h5>Identité</h5>
         </div>
         <div class="col-6">
-          <input type="text" class="form-control mb-4" name="nom" placeholder="Votre nom ici">
-          <input type="text" class="form-control mb-4" name="prenom" placeholder="Votre penom ici">
+          <input type="text" class="form-control mb-4" name="nom"  [(ngModel)]="monprofil.userName">
+          <input type="text" class="form-control mb-4" name="prenom"  [(ngModel)]="monprofil.userLastName">
         </div>
         <div class="col-3">
             <div class="arrow_box"> Seul votre Prénom apparaît sur votre profil public.
@@ -94,9 +94,9 @@
           <h5>Adresse</h5>
         </div>
         <div class="col-6">
-          <input type="text" class="form-control mb-4" name="nom" placeholder="Rue">
-          <input type="text" class="form-control mb-4" name="prenom" placeholder="Quartier">
-          <input type="text" class="form-control mb-4" name="prenom" placeholder="Ville">
+          <input type="text" class="form-control mb-4" name="nom"  [(ngModel)]="monprofil.userAdresse.street">
+          <input type="text" class="form-control mb-4" name="prenom"  [(ngModel)]="monprofil.userAdresse.city">
+          <input type="text" class="form-control mb-4" name="prenom"  [(ngModel)]="monprofil.userAdresse.zipCode">
         </div>
         <div class="col-3">
             <div class="arrow_box">
