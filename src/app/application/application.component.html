@@ -49,23 +49,25 @@
           <th scope="col">#</th>
           <th scope="col">Nom de la publication</th>
           <th scope="col">Date d'ajout</th>
-      
+           <th scope="col"> Nombre Total des propostions</th>
+           <th scope="col">Propositions non lus</th>
           <th scope="col">Editer</th>
           <th scope="col">Supprimer</th>
-          <th scope="col">Voir propostios</th>
+          <th scope="col">Voir propositions</th>
 
         </tr>
       </thead>
       <tbody>
 
 
-        <tr *ngFor="let pub of userData let i= index">
+        <tr *ngFor="let pub of userData  let i= index ">
           <th scope="row">{{i}}</th>
           <td><a (click)="showApplication(pub.id,i)"> <span style="font-size:1.5rem"> {{pub.nomPublication}}</span></a></td>
-          <td>{{pub.datePub}}</td>
-          <td></td>
-          
-          <td></td>
+          <td> {{pub.datePub}}</td>
+          <td> <span class="badge badge-primary" style="font-size: 1.2rem"> {{applications[i]}} </span> </td>
+          <td>  <span class="badge badge-warning" style="font-size: 1.2rem"> {{applicationsNonLus[i]}} </span>  </td>
+          <td><span style="font-size: 1.2rem" ><i class="fas fa-edit"></i></span></td>
+          <td><span style="font-size: 1.2rem"><i class="far fa-trash-alt"></i></span></td>
           <td> <a (click)="showApplication(pub.id,i)"><span class="badge badge-success">Voir les propostions</span></a><td>
 
         </tr>

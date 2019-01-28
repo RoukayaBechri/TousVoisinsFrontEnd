@@ -5,6 +5,8 @@ import { PublicationService } from '../publication.service';
 import { SimpleUser } from '../entities/simpleUser';
 import { Feedback } from '../entities/feedback';
 import { Router } from '@angular/router';
+import { DomSanitizer } from '@angular/platform-browser';
+import { UserserviceService } from '../userservice.service';
 
 @Component({
   selector: 'app-feedback',
@@ -16,17 +18,32 @@ export class FeedbackComponent implements OnInit {
   profil: SimpleUser= new SimpleUser()
   feedbackData: any=[];
   feedback: Feedback= new Feedback();
+  photo: any=[]
+  image;
 
-  constructor( private router: Router, private param:  ParamService, private mapdisplay: MapserviceService, private publicationService: PublicationService ) { }
+  constructor(private _sanitizer: DomSanitizer, 
+    private router: Router, 
+    private param:  ParamService, 
+   private userService : UserserviceService,
+     private publicationService: PublicationService ) { }
 
   ngOnInit() {
          
     this.publicationService.getfeedBackByUser(this.param.getprofilUser().id).subscribe(
       data=>{
         this.feedbackData= data.json();
+        for (let i=0;i<this.feedbackData.length ; i++){
+          this.photo.push(this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' +this.feedbackData[i].simpleUser1.userPhoto))
+           console.log(this.photo[i])
+        }
    
       }
     ) 
+  }
+
+  ngAfterViewInit() {
+   
+    
   }
 
  
@@ -41,6 +58,10 @@ export class FeedbackComponent implements OnInit {
    
       }
     )
+  }
+
+  onError(i: number){
+    this.photo[i]="../../assets/photoprofil.jpg"
   }
 
 }

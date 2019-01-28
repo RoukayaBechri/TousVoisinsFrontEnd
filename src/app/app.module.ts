@@ -21,6 +21,7 @@ import { MesdemandesComponent } from './mesdemandes/mesdemandes.component';
 import { SupplyComponent } from './supply/supply.component';
 import { StarRatingModule } from 'angular-rating-star';
 import { FeedbackComponent } from './feedback/feedback.component';
+import { CardprofilComponent } from './cardprofil/cardprofil.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { FeedbackComponent } from './feedback/feedback.component';
     ApplicationdisplayComponent,
     MesdemandesComponent,
     SupplyComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    CardprofilComponent
   ],
   imports: [
     BrowserModule,

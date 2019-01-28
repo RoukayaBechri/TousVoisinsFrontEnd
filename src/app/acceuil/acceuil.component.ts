@@ -9,7 +9,7 @@ import { ParamService } from '../param.service';
   styleUrls: ['./acceuil.component.css']
 })
 export class AcceuilComponent implements OnInit {
-  userAdresse;
+  userAdresse="Tunis";
   userData: any = [];
   mapLatCenter;
   mapLonCenter;

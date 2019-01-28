@@ -1,7 +1,7 @@
-<div *ngFor="let f of feedbackData" class="row" style="margin:2%; padding:2%">
+<div *ngFor="let f of feedbackData let i=index" class="row" style="margin:2%; padding:2%">
   <div class=" col-2 align-items-center justify-content-center ">
 
-    <img src="../../assets/image-de-homme_1.jpg" style="width:60px; height:60px; margin-top: 3%" class="rounded-circle rounded mx-auto d-block"
+    <img [src]="photo[i]" (error)="onError(i)" style="width:50px; height:50px; margin-top: 3%" class="rounded-circle rounded mx-auto d-block"
       alt="profil">
   </div>
 

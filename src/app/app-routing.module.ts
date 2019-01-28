@@ -13,18 +13,19 @@ import { ApplicationdisplayComponent } from './applicationdisplay/applicationdis
 import { MesdemandesComponent } from './mesdemandes/mesdemandes.component';
 import { SupplyComponent } from './supply/supply.component';
 import { FeedbackComponent } from './feedback/feedback.component';
+import { AuthguardService } from './authguard.service';
 
 const routes: Routes = [
   {path: '', component:AcceuilComponent},
   {path:'acceuil', component:AcceuilComponent},
-  {path:'profil', component:ProfilComponent, children:[{path:'feedback', component: FeedbackComponent}]},
-  {path:'demandes', component:DemandesComponent},
-  {path:'publication', component:PublicationComponent},
-  {path:'voisins', component:VoisinsComponent},
-  {path:'moncompte', component:MoncompteComponent},
+  {path:'profil', canActivate: [AuthguardService], component:ProfilComponent, children:[{path:'feedback', component: FeedbackComponent}]},
+  {path:'demandes', canActivate: [AuthguardService], component:DemandesComponent},
+  {path:'publication',canActivate: [AuthguardService], component:PublicationComponent},
+  {path:'voisins', canActivate: [AuthguardService], component:VoisinsComponent},
+  {path:'moncompte',canActivate: [AuthguardService], component:MoncompteComponent},
   {path:'register', component:RegisterComponent},
   {path:'sign', component:SignComponent},
-  {path:'application', component:ApplicationComponent},
+  {path:'application',canActivate: [AuthguardService], component:ApplicationComponent},
    {path:'applicationdisplay', component:ApplicationdisplayComponent},
    {path:'mesdemandes', component:MesdemandesComponent, children:[
      { path:'supply', component:SupplyComponent}

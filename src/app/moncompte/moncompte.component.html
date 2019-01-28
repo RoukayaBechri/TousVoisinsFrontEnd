@@ -7,30 +7,29 @@
       </div>
     </div>
   </div>
-  <div class='row' style="margin:2%">
-    <div class="col-3">
+  <div class='row justify-content-around' style="margin:2%">
+    <div class="col-3 navigationGauche">
       <ul class="nav flex-column">
-        <li class="nav-item">
-          <a class="nav-link active" href="#"><span style="color:#66a3ff"><i class="fas fa-caret-right"></i></span>Identité</a>
+        <li class="nav-item b">
+          <a class="nav-link active b" (click)="display('identite')"><span style="color:#66a3ff"><i class="fas fa-caret-right"></i></span>Identité</a>
         </li>
         <hr>
-        <li class="nav-item">
-          <a class="nav-link" href="#"><span style="color:#66a3ff"><i class="fas fa-caret-right"></i></span>Présentation</a>
+        <li class="nav-item b">
+          <a class="nav-link" (click)="display('presentation')"><span style="color:#66a3ff"><i class="fas fa-caret-right"></i></span>Présentation</a>
         </li>
         <hr>
-        <li class="nav-item">
-          <a class="nav-link" href="#"><span style="color:#66a3ff"><i class="fas fa-caret-right"></i></span>Verification</a>
+        <li class="nav-item b">
+          <a class="nav-link" (click)="display('parametre')"><span style="color:#66a3ff"><i class="fas fa-caret-right"></i></span>Paramétre
+            du compte</a>
         </li>
         <hr>
-        <li class="nav-item">
-          <a class="nav-link" href="#"><span style="color:#66a3ff"><i class="fas fa-caret-right"></i></span>Mes
-            prestations</a>
-        </li>
+
 
       </ul>
 
     </div>
-    <div class="col-9 profil">
+    <!--Identité-->
+    <div *ngIf="value=='identite'" class="col-7 profil">
       <!--FirstRow-->
       <div class="row">
 
@@ -42,7 +41,7 @@
           <div class="input-group">
             <div class="input-group-prepend">
               <div class="input-group-text" id="btnGroupAddon"><input class="form-check-input" type="radio" style="height:17px; width:17px; margin:2%"
-                  checked name="prop" id="homme" value="homme"></div>
+                  checked name="prop" id="homme" value="Homme" [(ngModel)]="monprofil.userGender" ></div>
             </div>
             <div class="input-group-append">
               <div class="input-group-text" id="btnGroupAddon"><span style="font-size: 3rem"><i class="fas fa-male"></i></span>
@@ -56,7 +55,7 @@
           <div class="input-group">
             <div class="input-group-prepend">
               <div class="input-group-text" id="btnGroupAddon"> <input class="form-check-input" type="radio" style="height:17px; width:17px;margin:2%"
-                  name="prop" id="femme" value="femme"></div>
+                  name="prop" id="femme" value="Femme" [(ngModel)]="monprofil.userGender"></div>
             </div>
             <div class="input-group-append">
               <div class="input-group-text" id="btnGroupAddon"><span style="font-size: 3rem"><i class="fas fa-female"></i></span>
@@ -66,8 +65,8 @@
           </div>
         </div>
         <div class="col-3">
-          
-           </div>
+
+        </div>
         <hr>
       </div>
       <!--First Row-->
@@ -77,12 +76,12 @@
           <h5>Identité</h5>
         </div>
         <div class="col-6">
-          <input type="text" class="form-control mb-4" name="nom"  [(ngModel)]="monprofil.userName">
-          <input type="text" class="form-control mb-4" name="prenom"  [(ngModel)]="monprofil.userLastName">
+          <input type="text" class="form-control mb-4" name="nom" [(ngModel)]="monprofil.userName">
+          <input type="text" class="form-control mb-4" name="prenom" [(ngModel)]="monprofil.userLastName">
         </div>
         <div class="col-3">
-            <div class="arrow_box"> Seul votre Prénom apparaît sur votre profil public.
-              </div>
+          <div class="arrow_box"> Seul votre Prénom apparaît sur votre profil public.
+          </div>
         </div>
 
         <hr>
@@ -94,14 +93,15 @@
           <h5>Adresse</h5>
         </div>
         <div class="col-6">
-          <input type="text" class="form-control mb-4" name="nom"  [(ngModel)]="monprofil.userAdresse.street">
-          <input type="text" class="form-control mb-4" name="prenom"  [(ngModel)]="monprofil.userAdresse.city">
-          <input type="text" class="form-control mb-4" name="prenom"  [(ngModel)]="monprofil.userAdresse.zipCode">
+          <input type="text" class="form-control mb-4" name="nom" [(ngModel)]="monprofil.userAdresse.street">
+          <input type="text" class="form-control mb-4" name="prenom" [(ngModel)]="monprofil.userAdresse.city">
+          <input type="text" class="form-control mb-4" name="prenom" [(ngModel)]="monprofil.userAdresse.zipCode">
         </div>
         <div class="col-3">
-            <div class="arrow_box">
-                Votre adresse nous permet de vous proposer un service personnalisé à l'échelle de votre quartier mais elle ne sera jamais affichée.
-              </div>
+          <div class="arrow_box">
+            Votre adresse nous permet de vous proposer un service personnalisé à l'échelle de votre quartier mais elle
+            ne sera jamais affichée.
+          </div>
         </div>
 
         <hr>
@@ -115,31 +115,160 @@
           <h5>Date de naissance</h5>
         </div>
         <div class="col-6">
-          <mat-form-field>
-            <input matInput [matDatepicker]="picker" placeholder="Choose a date">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
+          <input type="date" class="form-control mb-4" name="date" [(ngModel)]="monprofil.userBirthDate">
+            
 
         </div>
         <div class="col-3">
-            <div class="arrow_box"> 
-                Votre âge n'apparaîtra pas sur votre profil public mais nous n'oublierons pas de vous souhaiter votre anniversaire.
-              </div>
+          <div class="arrow_box">
+            Votre âge n'apparaîtra pas sur votre profil public mais nous n'oublierons pas de vous souhaiter votre
+            anniversaire.
+          </div>
         </div>
 
         <hr>
       </div>
 
       <!--fourt Row-->
-      <!--Five row-->
-      <div class="row align-items-center justify-content-center" style="padding-bottom: 3%">
-        <button class="btn btn-success btn-block" style="width: 50%;">Enregistrez modifications</button>
-      </div>
-      <!--Five row-->
+      
+        <div class="row align-items-center justify-content-center" style="padding-bottom: 3%">
+          <button class="btn btn-success btn-block" style="width: 50%;" (click)="save()">Enregistrez modifications</button>
+        </div>
+      
 
 
     </div>
+
+    <!--Identité-->
+
+    <!--Presentation-->
+    <div *ngIf="value=='presentation'" class="col-9 profil">
+      
+      <!--Second Row-->
+      <h4>Description:</h4>
+      <div class="row align-items-center justify-content-center" style="padding:1%">
+        <div class="col-3">
+          <h6>Donnez vous vous une description</h6>
+        </div>
+        <div class="col-6">
+         
+          <textarea class="form-control" id="description" rows="3" name="description" [(ngModel)]="monprofil. userDescription"
+          placeholder="Ex: Je suis disponible pour tous mes voisins pour leur offrir des objets et des services "></textarea>
+        </div>
+        <div class="col-3">
+          <div class="arrow_box"> Une bonne description de vous permettra au voisins de mieux vous connaitre et vous permettra aussi de miaux s'identifier sur le réseau.
+          </div>
+        </div>
+
+        <hr>
+      </div>
+      <!--Second Row-->
+      <!--third Row-->
+      <h4>Photo de profil</h4>
+      <div class="row align-items-center justify-content-center" style="padding:1%">
+        <div class="col-3">
+          <h5>Choississez une photo</h5>
+        </div>
+        <div class="col-3">
+          <div class="input-group">
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" (change)="preview($event); preview1($event) " accept="image/*">
+              <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+            </div>
+           
+          </div>
+          
+        </div>
+        <div class="col-3">
+          <canvas #mycanvas1 width="200" height="200" style="border:1px solid gray;"> </canvas>
+        </div>
+        <div class="col-3">
+          <div class="arrow_box">
+            Une photo de profil permettra au voisin de mieux vous identifier.
+          </div>
+        </div>
+
+        <hr>
+      </div>
+      
+        <div class="row align-items-center justify-content-center" style="padding-bottom: 3%">
+          <button class="btn btn-success btn-block" style="width: 50%;" (click)="save()">Enregistrez modifications</button>
+        </div>
+      
+      
+
+
+    </div>
+    <!--Presentation-->
+
+     <!--Parametre-->
+     <div *ngIf="value=='parametre'" class="col-9 profil" style="padding-bottom: 15%">
+       <h3>Paramétes de votre compte:</h3>
+       <hr>
+      <!--Second Row-->
+      
+      <div class="row align-items-center justify-content-center" style="padding:1%">
+        <div class="col-3">
+          <h6>Adresse E-mail</h6>
+        </div>
+        <div class="col-6">
+         
+          
+          <div class="col-sm-12">
+            <input type="email" class="form-control" name="mail" id="inputEmail3" placeholder="Email"[(ngModel)]="monprofil. userEmail">
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="arrow_box"> Votre adresse e-maim ne s'affichera pas dans votre profil public.
+          </div>
+        </div>
+
+        <hr>
+      </div>
+      <!--Second Row-->
+      <!--third Row-->
+      
+      <div class="row align-items-center justify-content-center" style="padding:1%">
+        <div class="col-3">
+          <h6>Redefinir un nouveau mot de passe</h6>
+        </div>
+        <div class="col-6">
+          <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-5 col-form-label">Mot de passe</label>
+            <div class="col-sm-7">
+              <input type="password" class="form-control" name="password1" id="inputPassword3" placeholder="Password"
+              [(ngModel)]="monprofil. userPassword">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-5 col-form-label">Confirmer Mot de passe</label>
+            <div class="col-sm-7">
+              <input type="password" class="form-control" name="password2" id="inputPassword4" placeholder="Password"
+               >
+            </div>
+          </div>
+          
+        </div>
+        
+        <div class="col-3">
+          <div class="arrow_box">
+            Un mot de passe bien sécurisé doit contenir des chiffre et des lettres.
+          </div>
+        </div>
+
+        <hr>
+      </div>
+
+      
+      
+        <div class="row align-items-center justify-content-center" style="padding-bottom: 3%">
+          <button class="btn btn-success btn-block" style="width: 50%;" (click)="save()">Enregistrez modifications</button>
+        </div>
+      
+
+    </div>
+    <!--Parametre du compte-->
+    
 
   </div>
 </div>

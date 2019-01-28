@@ -23,6 +23,16 @@ export class PublicationService {
   public url13="http://localhost:18080/SiteLocation-web/Site/Publication/getListSupplyById/"
   public url14="http://localhost:18080/SiteLocation-web/Site/feedback/getFeedbacksBySimpleUser/"
   public url15="http://localhost:18080/SiteLocation-web/Site/feedback/saveFeedback/"
+  public url16="http://localhost:18080/SiteLocation-web/Site/Publication/getListOffer"
+  public url17="http://localhost:18080/SiteLocation-web/Site/Publication/getAllSupply"
+  public url18="http://localhost:18080/SiteLocation-web/Site/Publication/offreByCategoryObjet/"
+  public url19="http://localhost:18080/SiteLocation-web/Site/Publication/supplyByCategoryObjet/"
+  public url20="http://localhost:18080/SiteLocation-web/Site/Publication/offreByCategoryService/"
+  public url21="http://localhost:18080/SiteLocation-web/Site/Publication/supplyByCategoryService/"
+  public url22="http://localhost:18080/SiteLocation-web/Site/Publication/getApplicationsByUser/"
+  public url23= "http://localhost:18080/SiteLocation-web/Site/Publication/updateNotificationAppBySimpleUser/"
+  public url24="http://localhost:18080/SiteLocation-web/Site/Publication/updateNotificationAppByPub/"
+  public url25="http://localhost:18080/SiteLocation-web/Site/feedback/saveRunk/"
   constructor(private http : Http) { }
 
   public getAllPublications(){
@@ -89,6 +99,44 @@ export class PublicationService {
    return this.http.post (this.url15+iduser1+"/"+iduser2, feedback)
   }
 
+
+  public getAllOffer(){
+    return this.http.get(this.url16);
+  }
+
+  public getAllSupply(){
+    return this.http.get(this.url17);
+  }
+
+  public getOffreByCategObjet(categ: string){
+    return this.http.get(this.url18+categ)
+
+  }
+
+  public getSupplyByCategObjet(categ: string){
+    return this.http.get(this.url19+categ)
+  }
+
+  public getOffreByCategService(categ: string){
+    return this.http.get(this.url20+categ)
+
+  }
+
+  public getSupplyByCategService(categ: string){
+    return this.http.get(this.url21+categ)
+  }
+
+  public getApplicationByUser(id: number){
+    return this.http.get(this.url22+id)
+  }
+
+  public readApplicationPub(idPub: number){
+      return this.http.put(this.url24+idPub,{})
+  }
+
+  public addRunk(iduser1: number, iduser2: number, feedback: Feedback){
+    return this.http.post (this.url25+iduser1+"/"+iduser2, feedback)
+   }
 
 
 

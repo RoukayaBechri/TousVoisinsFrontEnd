@@ -11,6 +11,7 @@ import { PublicationService } from '../publication.service';
 import { Application } from '../entities/application';
 import { error } from 'protractor';
 import { Router } from '@angular/router';
+import { DomSanitizer } from '@angular/platform-browser';
 
 declare let L;
 
@@ -42,12 +43,31 @@ export class VoisinsComponent implements OnInit {
   display=0;
   currentPublication;
   error=1;
+  photo
+  
+  offreImage: any=[]
+supplyImage: any=[]
+dataSet = {
+  
+  colors: ["#cccc00", "#cccc00", "#cccc00", "#cccc00", "#cccc00"]  ,
+  showLabels: false // hide the label
+}
 
 
-
-  constructor(private router: Router, private acceuil: AcceuilComponent, private mapdisplay: MapserviceService, private voisinsdisplay: UserserviceService, private param: ParamService, private publicationService: PublicationService) { }
+  constructor(private _sanitizer: DomSanitizer, private router: Router, private acceuil: AcceuilComponent, private mapdisplay: MapserviceService, private voisinsdisplay: UserserviceService, private param: ParamService, private publicationService: PublicationService) { }
 
   ngOnInit() {
+
+
+   // this.voisinsdisplay.getPhotoByUser(4).subscribe(
+     // data=>{
+       // this.photo= data.json()
+       // console.log("photo"+data.json().userPhoto)
+       // this.image= (data.json().userPhoto)
+       // this.blob=this.makeblob(data.json().userPhoto)
+       //console.log("++++"+this.blob)
+     // }
+   // )
     
     this.initialAdresse = this.param.getInitialAdresse()
     console.log("initial adresse: " + this.param.getInitialAdresse())
@@ -88,14 +108,15 @@ export class VoisinsComponent implements OnInit {
 
         this.voisinsAdresse = this.voisinsData[i].userAdresse.street + " " + this.voisinsData[i].userAdresse.city;
         this.voisinName = this.voisinsData[i].userName + " " + this.voisinsData[i].userLastName;
+        this.photo=this.voisinsData[i].userPhoto
         this.mapdisplay.getApiAdresse(this.voisinsAdresse).subscribe(
           data => {
             console.log(i);
             this.mapData = data.json();
             var marker = L.marker([this.mapData[0].lat, this.mapData[0].lon]).addTo(this.map);
             this.mapMarkers.push(marker);
-            marker.bindPopup("<mat-card class='example-card' style='align-self:center'> <mat-card-header><div mat-card-avatar class='example-header-image' style='background-image: url('https://www.eliterencontre.fr/sites/www.eliterencontre.fr/files/styles/elite_rectangle_article_arrow_left_frame/public/2b_en_articleslide_sm5.jpg'); background-size: cover;' ></div><mat-card-title>" + this.voisinsData[i].userName + " " + this.voisinsData[i].userLastName + "</mat-card-title><br><mat-card-subtitle><i class='fas fa-map-marker-alt'></i>La marsa</mat-card-subtitle><br><span class='fa fa-star checked' style='color: #F9E005;'></span><span class='fa fa-star checked' style='color: #F9E005;'></span><span class='fa fa-star checked'></span><span class=fa fa-star></span></mat-card-header>").openPopup();
-
+           // marker.bindPopup("<mat-card class='example-card' style='align-self:center'> <mat-card-header><div mat-card-avatar class='example-header-image' style='background-image: url('https://www.eliterencontre.fr/sites/www.eliterencontre.fr/files/styles/elite_rectangle_article_arrow_left_frame/public/2b_en_articleslide_sm5.jpg'); background-size: cover;' ></div><mat-card-title>" + this.voisinsData[i].userName + " " + this.voisinsData[i].userLastName + "</mat-card-title><br><mat-card-subtitle><i class='fas fa-map-marker-alt'></i>La marsa</mat-card-subtitle><br><span class='fa fa-star checked' style='color: #F9E005;'></span><span class='fa fa-star checked' style='color: #F9E005;'></span><span class='fa fa-star checked'></span><span class=fa fa-star></span></mat-card-header>").openPopup();
+           marker.bindPopup(" <divclass='col-12'><div >  <div class='card-body'><div class='row justify-content-between'> <img src='data:image/jpeg;base64,"+this.voisinsData[i].userPhoto+"' style='width:50px; height:50px;' class='rounded-circle float-left'> <div class='col-6'><h6 class='card-title' >"+ this.voisinsData[i].userName +" " + this.voisinsData[i].userLastName +"</h6></div></div> <p class='card-text'><i class='fas fa-map-marker-alt'></i>" +  this.voisinsData[i].userAdresse.street + " " + this.voisinsData[i].userAdresse.city+"</p> </div></div></div> </div>").openPopup();
           })
 
       }
@@ -106,6 +127,7 @@ export class VoisinsComponent implements OnInit {
 
   }
   ngAfterViewInit() {
+   
 
 
   }
@@ -137,20 +159,27 @@ export class VoisinsComponent implements OnInit {
 
     if (this.modelprop === "objet") {
 
-      this.publicationService.getPublicationByCategorie(this.objet.catObjet).subscribe(
+      this.publicationService.getOffreByCategObjet(this.objet.catObjet).subscribe(
         data => {
+         
           this.searchData = data.json()
           console.log(this.searchData)
-          for (var i = 0; i < this.searchData.length; i++) {
+          for (let i=0; i<this.searchData.length; i++){
+            this.offreImage[i]=(this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' +this.searchData[i].photo))
+            console.log(this.offreImage[i])
+          }
+          for (let i = 0; i < this.searchData.length; i++) {
 
             this.voisinsAdresse = this.searchData[i].simpleUser.userAdresse.street + " " + this.searchData[i].simpleUser.userAdresse.city;
             this.voisinName = this.searchData[i].simpleUser.userName + " " + this.searchData[i].simpleUser.userLastName
+            this.photo=this.searchData[i].simpleUser.userPhoto
             this.mapdisplay.getApiAdresse(this.voisinsAdresse).subscribe(
               data => {
                 this.mapData = data.json();
                 var marker = L.marker([this.mapData[0].lat, this.mapData[0].lon]).addTo(this.map);
                 this.mapMarkers.push(marker);
-                marker.bindPopup("<mat-card class='example-card' style='align-self:center'> <mat-card-header><div mat-card-avatar class='example-header-image' style='background-image: url('https://www.eliterencontre.fr/sites/www.eliterencontre.fr/files/styles/elite_rectangle_article_arrow_left_frame/public/2b_en_articleslide_sm5.jpg'); background-size: cover;' ></div><mat-card-title>" + this.voisinName + "</mat-card-title><br><mat-card-subtitle><i class='fas fa-map-marker-alt'></i>La marsa</mat-card-subtitle><br><span class='fa fa-star checked' style='color: #F9E005;'></span><span class='fa fa-star checked' style='color: #F9E005;'></span><span class='fa fa-star checked'></span><span class=fa fa-star></span></mat-card-header>").openPopup();
+               // marker.bindPopup("<mat-card class='example-card' style='align-self:center'> <mat-card-header><div mat-card-avatar class='example-header-image' style='background-image: url('https://www.eliterencontre.fr/sites/www.eliterencontre.fr/files/styles/elite_rectangle_article_arrow_left_frame/public/2b_en_articleslide_sm5.jpg'); background-size: cover;' ></div><mat-card-title>" + this.voisinName + "</mat-card-title><br><mat-card-subtitle><i class='fas fa-map-marker-alt'></i>La marsa</mat-card-subtitle><br><span class='fa fa-star checked' style='color: #F9E005;'></span><span class='fa fa-star checked' style='color: #F9E005;'></span><span class='fa fa-star checked'></span><span class=fa fa-star></span></mat-card-header>").openPopup();
+               marker.bindPopup(" <divclass='col-12'><div >  <div class='card-body'><div class='row justify-content-between'> <img src='data:image/jpeg;base64,"+this.searchData[i].simpleUser.userPhoto+"' style='width:50px; height:50px;' class='rounded-circle float-left'> <div class='col-6'><h6 class='card-title' >"+ this.searchData[i].simpleUser.userName + " " + this.searchData[i].simpleUser.userLastName+"</h6></div></div> <p class='card-text'><i class='fas fa-map-marker-alt'></i>" +  this.searchData[i].simpleUser.userAdresse.street + " " + this.searchData[i].simpleUser.userAdresse.city+"</p> </div></div></div> </div>").openPopup();
               })
           }
 
@@ -160,21 +189,29 @@ export class VoisinsComponent implements OnInit {
 
 
     if (this.modelprop === "service") {
-
-      this.publicationService.getPublicationByCategorie(this.service.catService).subscribe(
+       console.log(this.service.catService)
+      this.publicationService.getOffreByCategService(this.service.catService).subscribe(
         data => {
           this.searchData = data.json()
           console.log(this.searchData)
-          for (var i = 0; i < this.searchData.length; i++) {
+          for (let i=0; i<this.searchData.length; i++){
+            this.offreImage[i]=(this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' +this.searchData[i].photo))
+            console.log(this.offreImage[i])
+          }
+          for (let i = 0; i < this.searchData.length; i++) {
 
             this.voisinsAdresse = this.searchData[i].simpleUser.userAdresse.street + " " + this.searchData[i].simpleUser.userAdresse.city;
             this.voisinName = this.searchData[i].simpleUser.userName + " " + this.searchData[i].simpleUser.userLastName
-            this.mapdisplay.getApiAdresse(this.voisinsAdresse).subscribe(
+             this.photo=this.searchData[i].simpleUser.userPhoto
+             console.log("photo:--> "+this.photo)
+             this.mapdisplay.getApiAdresse(this.voisinsAdresse).subscribe(
               data => {
                 this.mapData = data.json();
                 var marker = L.marker([this.mapData[0].lat, this.mapData[0].lon]).addTo(this.map);
                 this.mapMarkers.push(marker);
-                marker.bindPopup("<mat-card class='example-card' style='align-self:center'> <mat-card-header><div mat-card-avatar class='example-header-image' style='background-image: url('https://www.eliterencontre.fr/sites/www.eliterencontre.fr/files/styles/elite_rectangle_article_arrow_left_frame/public/2b_en_articleslide_sm5.jpg'); background-size: cover;' ></div><mat-card-title>" + this.voisinName + "</mat-card-title><br><mat-card-subtitle><i class='fas fa-map-marker-alt'></i>La marsa</mat-card-subtitle><br><span class='fa fa-star checked' style='color: #F9E005;'></span><span class='fa fa-star checked' style='color: #F9E005;'></span><span class='fa fa-star checked'></span><span class=fa fa-star></span></mat-card-header>").openPopup();
+               // this.photo=(this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' +this.searchData[i].photo))
+               // marker.bindPopup("<mat-card class='example-card' style='align-self:center'> <mat-card-header><div mat-card-avatar class='example-header-image' style='background-image: url('https://www.eliterencontre.fr/sites/www.eliterencontre.fr/files/styles/elite_rectangle_article_arrow_left_frame/public/2b_en_articleslide_sm5.jpg'); background-size: cover;' ></div><mat-card-title>" + this.voisinName + "</mat-card-title><br><mat-card-subtitle><i class='fas fa-map-marker-alt'></i>La marsa</mat-card-subtitle><br><span class='fa fa-star checked' style='color: #F9E005;'></span><span class='fa fa-star checked' style='color: #F9E005;'></span><span class='fa fa-star checked'></span><span class=fa fa-star></span></mat-card-header>").openPopup();
+                marker.bindPopup(" <divclass='col-12'><div >  <div class='card-body'><div class='row justify-content-between'> <img src='data:image/jpeg;base64,"+this.photo+"' style='width:50px; height:50px;' class='rounded-circle float-left'> <div class='col-6'><h6 class='card-title' >"+this.voisinName+"</h6></div></div> <p class='card-text'><i class='fas fa-map-marker-alt'></i>" + this.searchData[i].simpleUser.userAdresse.street + " " + this.searchData[i].simpleUser.userAdresse.city+"</p> </div></div></div> </div>").openPopup();
               })
           }
 
@@ -201,11 +238,10 @@ export class VoisinsComponent implements OnInit {
       error=>{
           console.log(error.status)
           this.error= error.status;
-          
+    
 
       }
-      
-
+  
     )
 
   this.display=0;
@@ -227,5 +263,12 @@ export class VoisinsComponent implements OnInit {
       this.router.navigate([route])
     }
 
+
+ 
+
+
+    onError2(i:number){
+      this.offreImage[i]="../../assets/image1.jpg"
+    }
 
 }

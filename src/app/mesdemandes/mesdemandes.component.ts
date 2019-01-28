@@ -18,9 +18,10 @@ export class MesdemandesComponent implements OnInit {
   constructor(private router: Router, private param: ParamService, private publicationService: PublicationService, private voisinsdisplay: UserserviceService) { }
 
   ngOnInit() {
-    this.publicationService.getApplicationByIdUser(this.param.getActifUser().id).subscribe(
+    this.publicationService.getApplicationByUser(this.param.getActifUser().id).subscribe(
       data=>{
         this.userData= data.json()
+        console.log(this.userData)
       }
     )
   }

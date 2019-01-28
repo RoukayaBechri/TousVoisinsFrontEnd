@@ -31,6 +31,15 @@ export class ApplicationdisplayComponent implements OnInit {
       }
     )
   }
+  ngAfterViewInit() {
+    this.publicationService.readApplicationPub(this.param.getPubId()).subscribe(
+      data=>{
+        console.log(data)
+      }
+    )
+    
+    
+  }
 
 accepter(i: number){
   var idUser= this.appliData[i].applicationPK.idSimpleUser;
@@ -41,6 +50,7 @@ accepter(i: number){
   this.publicationService.acceptApplication(idUser,idPub).subscribe(
     data=>{
       console.log(data.json())
+      this.ngOnInit()
     }
   );
 

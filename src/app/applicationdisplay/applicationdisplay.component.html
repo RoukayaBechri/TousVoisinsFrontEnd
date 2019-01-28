@@ -70,9 +70,15 @@
             </div>
       
             <hr>
-            <div class="row text-center">
-                <button type="button" class="btn  btn-sm btn-outline-success" (click)="accepter(i)">Accepter</button>
-                <button type="button" class="btn  btn-sm btn-outline-danger">Décliner</button>
+            <div *ngIf="a.validApp==true" class="row text-center">
+              <button  type="button" class="btn  btn-sm btn-outline-success" >Vous avez accepté cette demande</button>
+             
+              
+          </div>
+
+            <div *ngIf="a.validApp==false" class="row text-center">
+                <button  type="button" class="btn  btn-sm btn-outline-success" (click)="accepter(i)">Accepter</button>
+                <button  type="button" class="btn  btn-sm btn-outline-danger">Décliner</button>
                 
             </div>
           

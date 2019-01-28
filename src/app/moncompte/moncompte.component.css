@@ -16,6 +16,18 @@ hr{
   
   }
 
+  .navigationGauche{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 10px;
+    margin-left: 1%; 
+    background-color:#ccd9ff;
+  }
+
+  .b:hover {
+    background-color: #4d79ff;
+   font-size: 1.2rem
+  }
+
   .shadow{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }

@@ -19,20 +19,28 @@ export class MenuComponent implements OnInit {
   constructor(private router: Router, private param: ParamService, private publicationService: PublicationService) { }
 
   ngOnInit() {
-    this.connect = this.param.getConnect();
+    
+    let user = JSON.parse(localStorage.getItem("connection"));
+    console.log(user);
+    if (user==true) {
+      this.connect= true;
+      console.log("ghjds;gf");
+    }
+    else this.connect=false;
     console.log("Connect from menu :" + this.connect)
     this.user = this.param.getActifUser();
     this.publicationService.getApplicationByIdUser(this.user.id).subscribe(
       data => {
       this.notification = data.json();
         for (var i = 0; i < this.notification.length; i++) {
-          if (this.notification[i].validApp == false) {
-            console.log(this.notification[i].validApp)
+          if (this.notification[i].readApp == false) {
+            console.log("Read==="+this.notification[i].readApp)
              this.nbreNotification++; }
         }
       }
     )
   }
+  
   navigate1(route: string) {
     this.router.navigate([route]);
 
@@ -53,6 +61,7 @@ export class MenuComponent implements OnInit {
     this.connect = false;
     this.param.setConnect(false)
     this.param.setActifUser(new SimpleUser())
+    localStorage.clear();
   }
 
 

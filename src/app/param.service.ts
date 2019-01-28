@@ -16,8 +16,17 @@ export class ParamService {
   private application: Application = new Application();
   private publication: Publication = new Publication();
   pubid: number;
+  nbreApplication;
 
   constructor() { }
+
+  public setNbreAppli(n: number){
+    this.nbreApplication=n
+  }
+
+  public getNbreAppli(){
+    return this.nbreApplication
+  }
 
 
   public setPubId(id) {

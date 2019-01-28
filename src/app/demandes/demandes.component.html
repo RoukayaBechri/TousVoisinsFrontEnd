@@ -37,46 +37,51 @@
     </div>
     <!--Search div-->
   </div>
-  <div class="row justify-content-around" style="padding-top: 2%; background-color: #f2f2f2">
+  <div class="row container-fluid justify-content-around" style="padding-top: 2%; background-color: #f2f2f2">
     <!--Vertical Nav-->
-    <div class="col-3 navigation">
+    <div class="col-3 navigationGauche">
       <h4 style="color: #404040; margin-top: 3%">Affiner vos Critères:</h4>
       <h6 style="color: #404040">Demandes D'objets:</h6>
       <nav class="nav flex-column">
-        <a class="nav-link active" href="#">Ouitillage et travaux</a>
-        <a class="nav-link" href="#">Matériel de jardin</a>
-        <a class="nav-link" href="#">Maison et confort</a>
-        <a class="nav-link " href="#">Evénement, Réception & Fête </a>
-        <a class="nav-link" href="#">High Tech</a>
-        <a class="nav-link" href="#">Fournitures de bureau</a>
-        <a class="nav-link" href="#">Matériel de Sport</a>
-        <a class="nav-link" href="#">Loisirs</a>
-        <a class="nav-link" href="#">Mode & Accessoires Adulte</a>
-        <a class="nav-link" href="#">Mode Enfant, Bébé & Puériculture</a>
-        <a class="nav-link" href="#">Bien-être & Bagagerie</a>
-        <a class="nav-link" href="#">Transport & Accessoires Auto , Moto & Bateau</a>
-        <a class="nav-link" href="#">Immobilier</a>
+        <a class="nav-link b active" (click)="searchObjet('Ouitillage et travaux')">Ouitillage et travaux</a>
+        <a class="nav-link b" (click)="searchObjet('Matériel de jardin')">Matériel de jardin</a>
+        <a class="nav-link b" (click)="searchObjet('Maison et confort')">Maison et confort</a>
+        <a class="nav-link b " (click)="searchObjet('Evénement, Réception & Fête')">Evénement, Réception & Fête </a>
+        <a class="nav-link b" (click)="searchObjet('High Tech')">High Tech</a>
+        <a class="nav-link b" (click)="searchObjet('Fournitures de bureau')">Fournitures de bureau</a>
+        <a class="nav-link b" (click)="searchObjet('Matériel de Sport')">Matériel de Sport</a>
+        <a class="nav-link b" (click)="searchObjet('Loisirs')">Loisirs</a>
+        <a class="nav-linkb " (click)="searchObjet('Livres, Magazines & BD')">Livres, Magazines & BD</a>
+
+        <a class="nav-link b" (click)="searchObjet('Mode & Accessoires Adulte')">Mode & Accessoires Adulte</a>
+        <a class="nav-link b" (click)="searchObjet('Mode Enfant, Bébé & Puériculture')">Mode Enfant, Bébé & Puériculture</a>
+        <a class="nav-link b" (click)="searchObjet('Bien-être & Bagagerie')">Bien-être & Bagagerie</a>
+        <a class="nav-link b" (click)="searchObjet('Transport & Accessoires Auto , Moto & Bateau')">Transport &
+          Accessoires Auto , Moto & Bateau</a>
+        <a class="nav-link b" (click)="searchObjet('Immobilier')">Immobilier</a>
       </nav>
       <hr>
       <h6 style="color: #404040">Demandes de Service:</h6>
       <nav class="nav flex-column">
-        <a class="nav-link active" href="#">Bricolage - Travaux</a>
-        <a class="nav-link" href="#">Jardinage - Piscine</a>
-        <a class="nav-link" href="#">Déménagement - Manutention</a>
-        <a class="nav-link " href="#">Dépannage - Réparation de matériel </a>
-        <a class="nav-link" href="#">Entretien - Réparation véhicules</a>
-        <a class="nav-link" href="#">Services véhiculés</a>
-        <a class="nav-link" href="#">Services à la personne</a>
-        <a class="nav-link" href="#">Enfants</a>
-        <a class="nav-link" href="#">Animaux</a>
-        <a class="nav-link" href="#">Informatique et web</a>
-        <a class="nav-link" href="#">Photographie - Vidéo</a>
-        <a class="nav-link" href="#">Animation - Evénements</a>
-        <a class="nav-link" href="#">Cours - Formations</a>
-        <a class="nav-link" href="#">Cours - Formations</a>
-        <a class="nav-link" href="#">Administratif - Bureautique</a>
-        <a class="nav-link" href="#">Mode - Santé - Bien être</a>
-        <a class="nav-link" href="#">Restauration - Réception</a>
+        <a class="nav-link active" (click)="searchService('Bricolage - Travaux')">Bricolage - Travaux</a>
+        <a class="nav-link" (click)="searchService('Jardinage - Piscine')">Jardinage - Piscine</a>
+        <a class="nav-link" (click)="searchService('Déménagement - Manutention')">Déménagement - Manutention</a>
+        <a class="nav-link " (click)="searchService('Dépannage - Réparation de matériel')">Dépannage - Réparation de
+          matériel </a>
+        <a class="nav-link" (click)="searchService('Entretien - Réparation véhicules')">Entretien - Réparation
+          véhicules</a>
+        <a class="nav-link" (click)="searchService('Services véhiculés')">Services véhiculés</a>
+        <a class="nav-link" (click)="searchService('Services à la personne')">Services à la personne</a>
+        <a class="nav-link" (click)="searchService('Enfants')">Enfants</a>
+        <a class="nav-link" (click)="searchService('Animaux')">Animaux</a>
+        <a class="nav-link" (click)="searchService('Informatique et web')">Informatique et web</a>
+        <a class="nav-link" (click)="searchService('Photographie - Vidéo')">Photographie - Vidéo</a>
+        <a class="nav-link" (click)="searchService('Animation - Evénements')">Animation - Evénements</a>
+        <a class="nav-link" (click)="searchService('Cours - Formations')">Cours - Formations</a>
+        <a class="nav-link" (click)="searchService('Cours - Formations')">Cours - Formations</a>
+        <a class="nav-link" (click)="searchService('Administratif - Bureautique')">Administratif - Bureautique</a>
+        <a class="nav-link" (click)="searchService('Mode - Santé - Bien être')">Mode - Santé - Bien être</a>
+        <a class="nav-link" (click)="searchService('Restauration - Réception')">Restauration - Réception</a>
 
       </nav>
     </div>
@@ -88,13 +93,19 @@
 
     <div class="col-8">
       <!--Entete Affichage-->
-      <div class="navigation">
-        <div class="row" style="padding: 2%">
-          <mat-tab-group style="width: 100%">
-            <mat-tab label=" RÉPONDEZ AUX DEMANDES DE VOS VOISINS" style="margin:2%; font-size: 2rem"></mat-tab>
-            <mat-tab label="TROUVEZ DES VOISINS POUR VOS DEMANDES" style="margin: 2%; font-size: 2rem">  </mat-tab>
+      <div class="navigation"  style=" background-color:#ccd9ff">
+        <div class="row justify-content-around" style="padding: 2%;">
+          <div class="col-5 choice" style="margin: 1%" [ngStyle]="{'background-color': (mode==1) ? '#4d79ff' : ((mode==2) ? '#ccd9ff' : null),'color': (mode==1) ? 'white' : ((mode==2) ? 'black' : null) }">
+            <a (click)="display(1)">
+              <h6 class="bb" style="margin-top: 1%">RÉPONDEZ AUX DEMANDES DE VOS VOISINS</h6>
+            </a>
+          </div>
+          <div class="col-5 choice" style="margin: 1%" [ngStyle]="{'background-color': (mode==2) ? '#4d79ff' : ((mode==1) ? '#ccd9ff' : null),'color': (mode==2) ? 'white' : ((mode==1) ? 'black' : null) }" >
+            <a (click)="display(2)">
+              <h6 class="bb" style="margin-top: 1%">TROUVEZ DES VOISINS POUR VOS DEMANDES</h6>
+            </a>
+          </div>
 
-          </mat-tab-group>
 
 
         </div>
@@ -136,37 +147,173 @@
       <!--Entete Affichage-->
 
       <!-- Affichage div des demandes-->
-      <div *ngFor="let pub of publicationData" class=" navigation" style="margin-top: 2%">
-        <div class="row justify-content-between" style="padding-top:2%">
-          <div class="col-4 ">
-            <p style="color:grey; font-size: 0.8rem; margin-left: 1%">Date de publication: {{pub.datePub}}</p>
+      <div *ngIf="mode==1">
+        <h3 style="color: rgb(220, 94, 51); margin-left: 3%; margin-top: 1%"><strong>Les Demandes de vos voisin:</strong></h3>
+        <div *ngFor="let pub of supplyData let i=index" class=" navigation" style="margin-top: 2%">
+          <div class="row justify-content-between" style="padding-top:2%">
+            <div class="col-4 ">
+              <p style="color:grey; font-size: 0.8rem; margin-left: 1%">Date de publication: {{pub.datePub}}</p>
+            </div>
+            <div class="col-4"> <span class="badge badge-pill  badge-success" style="font-size: 1rem;">
+                <span *ngIf="pub.product.modeExpl=='Location' ">{{pub.product.modeExpl}}: </span>
+                <span *ngIf="pub.product.modeExpl=='Location' ">{{pub.product.productPrice}} DT/jour </span>
+
+                <span *ngIf="pub.product.modeExpl=='Vente' ">{{pub.product.modeExpl}}: </span>
+                <span *ngIf="pub.product.modeExpl=='Vente' ">{{pub.product.productPrice}} DT </span>
+                <span *ngIf="pub.product.modeExpl=='Don Gratuit'"> Gratuit</span>
+              </span>
+            </div>
           </div>
-          <div class="col-2"> <span class="badge badge-pill badge-success" style="font-size: 1rem">{{pub.product.productPrice}}
-              DT/jour</span>
+          <div class="row justify-content-around" style="padding-top:2%">
+            <div class="col-3">
+              <img [src]="supplyImage[i]" (error)="onError(i)" style="width: 100%; height: 100%;" class=" rounded mx-auto d-block"
+                alt="profil">
+            </div>
+            <div class="col-8">
+              <h5 style="color:gray"> <a (click)="goToUser(pub.simpleUser)" value="user" class="clickable">
+                  {{pub.simpleUser.userName}} {{pub.simpleUser.userLastName}} </a></h5>
+              <h3 style="margin-top:2%;margin-bottom: 2%; color: #3399ff">{{pub.nomPublication}}</h3>
+              <p>{{pub.description}}</p>
+
+              <!--Modal-->
+              <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#exampleModal" (click)="afficher(i,pub.id)">
+                Faire une propostion
+              </button>
+
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Faite une proposition au voisin</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <textarea *ngIf="error==1" class="form-control " id="propostion" rows="2" placeholder="Ecrire votre proposition ici"
+                        [(ngModel)]="application.proposition" required></textarea>
+                      <h5 *ngIf="error==500"> Vous avez déja posté un commentaire pour cette publication</h5>
+                      <h5 *ngIf="error==404" style="color:#cc0000"> Vous devez vous connectez avant pour faire une
+                        propostion</h5>
+                      <h5 *ngIf="error==2" style="color:green; font-size: 1.2rem"> Votre de proposition a été envoyé</h5>
+                    </div>
+                    <div class="modal-footer align-items-center align-content-center">
+                      <button *ngIf="error==1" type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Annuler</button>
+                      <button *ngIf="error==1" type="button" class="btn btn-primary btn-sm" (click)="proposer()">Envoyer</button>
+                      <button *ngIf="error==404" type="button" class="btn btn-success" data-dismiss="modal" (click)="navigate('/sign')">Se
+                        connectez</button>
+                      <button *ngIf="error==404" type="button" class="btn  btn-success " data-dismiss="modal" (click)="navigate('/register')">créez
+                        un compte</button>
+                      <button *ngIf="error==2" type="button" class="btn  btn-success " data-dismiss="modal">Fermer</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!--Modal-->
+
+
+
+            </div>
+          </div>
+          <div class="row justify-content-around">
+            <hr>
+            <span style="color: grey; font-size: 1rem; margin-left:2%; margin-right: 2%"><i class="fas fa-map-marker-alt"></i>
+              {{pub.simpleUser.userAdresse.street}} {{pub.simpleUser.userAdresse.city}}</span>
+            <span style="color: grey; font-size: 1rem; margin-left:2%; margin-right: 2%"><i class="fas fa-comments"></i>
+              Réponses et propositions</span>
+
+            <span style="color: grey; font-size: 1rem; margin-left:2%; margin-right: 2%"><i class="fas fa-clock"></i>
+              Valable jusqu'à:</span>
           </div>
         </div>
-        <div class="row justify-content-around" style="padding-top:2%">
-          <div class="col-3">
-            <img src="../../assets/image1.jpg" style="width: 100%; height: 100%;" class=" rounded mx-auto d-block" alt="profil">
-          </div>
-          <div class="col-8">
-            <h5 style="color:gray"> <a (click)="goToUser(pub.simpleUser)" value="user" class="clickable">
-                {{pub.simpleUser.userName}} {{pub.simpleUser.userLastName}} </a></h5>
-            <h3 style="margin-top:2%;margin-bottom: 2%; color: #3399ff">{{pub.nomPublication}}</h3>
-            <p>{{pub.description}}</p>
+      </div>
+      <!-- Affichage div des demandes-->
 
-            <button class="btn btn-primary" (click)="proposer(pub.id)">Faire une proposition </button>
-          </div>
-        </div>
-        <div class="row justify-content-around">
-          <hr>
-          <span style="color: grey; font-size: 1rem; margin-left:2%; margin-right: 2%"><i class="fas fa-map-marker-alt"></i>
-            {{pub.simpleUser.userAdresse.street}} {{pub.simpleUser.userAdresse.city}}</span>
-          <span style="color: grey; font-size: 1rem; margin-left:2%; margin-right: 2%"><i class="fas fa-comments"></i>
-            Réponses et propositions</span>
+      <!-- Affichage div des demandes-->
+      <div *ngIf="mode==2">
+        <h3 style="color: rgb(220, 94, 51); margin-left: 3%; margin-top: 1%"><strong>Les offres de vos voisin:</strong></h3>
+        <div *ngFor="let pub of offerData let i=index" class=" navigation" style="margin-top: 2%">
+          <div class="row justify-content-between" style="padding-top:2%">
+            <div class="col-4 ">
+              <p style="color:grey; font-size: 0.8rem; margin-left: 1%">Date de publication: {{pub.datePub}}</p>
+            </div>
+            <div class="col-4"> <span class="badge badge-pill  badge-success" style="font-size: 1rem;">
+                <span *ngIf="pub.product.modeExpl=='Location' ">{{pub.product.modeExpl}}: </span>
+                <span *ngIf="pub.product.modeExpl=='Location' ">{{pub.product.productPrice}} DT/jour </span>
 
-          <span style="color: grey; font-size: 1rem; margin-left:2%; margin-right: 2%"><i class="fas fa-clock"></i>
-            Valable jusqu'à:</span>
+                <span *ngIf="pub.product.modeExpl=='Vente' ">{{pub.product.modeExpl}}: </span>
+                <span *ngIf="pub.product.modeExpl=='Vente' ">{{pub.product.productPrice}} DT </span>
+                <span *ngIf="pub.product.modeExpl=='Don Gratuit'"> Gratuit</span>
+              </span>
+            </div>
+          </div>
+          <div class="row justify-content-around" style="padding-top:2%">
+            <div class="col-3">
+              <img [src]="offreImage[i]" (error)="onError2(i)" style="width: 100%; height: 100%;" class=" rounded mx-auto d-block"
+                alt="profil">
+            </div>
+            <div class="col-8">
+              <h5 style="color:gray"> <a (click)="goToUser(pub.simpleUser)" value="user" class="clickable">
+                  {{pub.simpleUser.userName}} {{pub.simpleUser.userLastName}} </a></h5>
+              <h3 style="margin-top:2%;margin-bottom: 2%; color: #3399ff">{{pub.nomPublication}}</h3>
+              <p>{{pub.description}}</p>
+
+              <!--Modal-->
+              <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#exampleModal" (click)="afficher(i,pub.id)">
+                Faire une propostion
+              </button>
+
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Faite une proposition au voisin</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <textarea *ngIf="error==1" class="form-control " id="propostion" rows="2" placeholder="Ecrire votre proposition ici"
+                        [(ngModel)]="application.proposition" required></textarea>
+                      <h5 *ngIf="error==500"> Vous avez déja posté un commentaire pour cette publication</h5>
+                      <h5 *ngIf="error==404" style="color:#cc0000"> Vous devez vous connectez avant pour faire une
+                        propostion</h5>
+                      <h5 *ngIf="error==2" style="color:green; font-size: 1.2rem"> Votre de proposition a été envoyé</h5>
+                    </div>
+                    <div class="modal-footer align-items-center align-content-center">
+                      <button *ngIf="error==1" type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Annuler</button>
+                      <button *ngIf="error==1" type="button" class="btn btn-primary btn-sm" (click)="proposer()">Envoyer</button>
+                      <button *ngIf="error==404" type="button" class="btn btn-success" data-dismiss="modal" (click)="navigate('/sign')">Se
+                        connectez</button>
+                      <button *ngIf="error==404" type="button" class="btn  btn-success " data-dismiss="modal" (click)="navigate('/register')">créez
+                        un compte</button>
+                      <button *ngIf="error==2" type="button" class="btn  btn-success " data-dismiss="modal">Fermer</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+              <!--Modal-->
+
+
+
+            </div>
+          </div>
+          <div class="row justify-content-around">
+            <hr>
+            <span style="color: grey; font-size: 1rem; margin-left:2%; margin-right: 2%"><i class="fas fa-map-marker-alt"></i>
+              {{pub.simpleUser.userAdresse.street}} {{pub.simpleUser.userAdresse.city}}</span>
+            <span style="color: grey; font-size: 1rem; margin-left:2%; margin-right: 2%"><i class="fas fa-comments"></i>
+              Réponses et propositions</span>
+
+            <span style="color: grey; font-size: 1rem; margin-left:2%; margin-right: 2%"><i class="fas fa-clock"></i>
+              Valable jusqu'à:</span>
+          </div>
         </div>
       </div>
       <!-- Affichage div des demandes-->

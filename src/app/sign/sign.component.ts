@@ -18,7 +18,7 @@ export class SignComponent implements OnInit {
   password: string;
   connect: boolean;
 
-  constructor(private userService: UserserviceService, private param: ParamService, private router: Router, ) { }
+  constructor(private userService: UserserviceService, private param: ParamService, private router: Router ) { }
 
   ngOnInit() {
   }
@@ -32,7 +32,9 @@ export class SignComponent implements OnInit {
             this.param.setConnect(true);
             this.connect = true
             console.log("Connect from sign is: " + this.param.getConnect())
-            this.param.setActifUser(this.userData[i])
+            this.param.setActifUser(this.userData[i]);
+            localStorage.setItem("loggedStatus", this.userData[i].id );
+            localStorage.setItem("connection", "true" );
             this.router.navigate(['acceuil']);
           }
           else 

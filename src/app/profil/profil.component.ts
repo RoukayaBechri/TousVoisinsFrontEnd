@@ -5,6 +5,8 @@ import { MapserviceService } from '../mapservice.service';
 import { PublicationService } from '../publication.service';
 import { Feedback } from '../entities/feedback';
 import { Router } from '@angular/router';
+import { UserserviceService } from '../userservice.service';
+import { DomSanitizer } from '@angular/platform-browser';
 declare let L;
 @Component({
   selector: 'app-profil',
@@ -16,22 +18,27 @@ export class ProfilComponent implements OnInit {
   mapData: any = [];
   offre: any=[];
   nbreOffre;
+  nbreAvis;
   supply: any=[];
   feedbackData: any=[];
   feedback: Feedback= new Feedback();
   nbreSupply;
   mapLat;
   mapLong;
-  map
+  map;
+  image
   dataSet = {
   
   colors: ["#cccc00", "#cccc00", "#cccc00", "#cccc00", "#cccc00"]  ,
   showLabels: false // hide the label
 }
-myprofil;
-  constructor(private router: Router, private param:  ParamService, private mapdisplay: MapserviceService, private publicationService: PublicationService ) { }
+myprofil=false;
+note
+  constructor(private _sanitizer: DomSanitizer, private userService: UserserviceService, private router: Router, private param:  ParamService, private mapdisplay: MapserviceService, private publicationService: PublicationService ) { }
 
   ngOnInit() {
+    this.nbreAvis=0
+    this.note=0
     if (this.param.getActifUser().id == this.param.getprofilUser().id){
       this.myprofil=true;
     }
@@ -77,6 +84,11 @@ myprofil;
             this.publicationService.getfeedBackByUser(this.param.getprofilUser().id).subscribe(
               data=>{
                 this.feedbackData= data.json();
+                for(let i=0; i<this.feedbackData.length; i++){
+                  if (this.feedbackData[i].runk !=0){
+                    this.nbreAvis++
+                  }
+                }
               }
             )
           }
@@ -85,18 +97,16 @@ myprofil;
     )
     
   })
-     
-
-   
-
-    
-    
-    
-
+ 
     console.log("nombre"+this.nbreOffre);
     console.log("nombre"+this.nbreSupply);
   
-    
+  }
+
+  ngAfterViewInit() {
+   
+
+
   }
 
   commenter(){
@@ -116,6 +126,24 @@ myprofil;
   navigate1(route: string) {
     this.router.navigate([route]);
 
+
+  }
+
+
+  showNote(){
+    this.note=1
+  }
+
+  giveNote(){
+    this.publicationService.addRunk(this.param.getActifUser().id, this.param.getprofilUser().id, this.feedback).subscribe(
+      data=> {
+        console.log(data.json())
+        this.feedback.runk=0;
+        this.note=0
+      
+        
+      }
+    )
 
   }
 
