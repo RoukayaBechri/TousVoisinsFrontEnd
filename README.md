@@ -27,6 +27,6 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 # TousVoisins
 "Tous Voisins" est une plateforme Web innovante qui facilite le partage au quotidien. Amplificateur de mieux vivre ensemble et d’entraide locale, cette application permet de créer des solutions concrètes pour faciliter l’acte de partage au quotidien. Grâce à lui, les habitants d’un même quartier ou d’une même ville peuvent échanger des objets ou des services en toute confiance.
-Ce travail est réalisé en utilisant les technologies suivante: 
-La partie back-end: Java JEE, EJB, JPA, Hibernate, Wildfly, MySQL
+Ce travail est réalisé en utilisant les technologies suivantes: 
+La partie back-end: Java JEE, EJB, JPA, Hibernate, Wildfly, MySQL 
 La partie front-end: Angular 7, JavaScript, HTML5, CSS3, Bootstrap4
